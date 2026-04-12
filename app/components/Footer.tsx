@@ -23,8 +23,8 @@ const links: Record<string, { label: string; href: string }[]> = {
   ],
 };
 
-const WHATSAPP = "https://wa.me/212707711512";
-const EMAIL = "goldengateiptv@gmail.com";
+const WHATSAPP = "https://wa.me/212710141872";
+const EMAIL = "multivisonsupport@gmail.com";
 
 export default function Footer() {
   return (
@@ -35,14 +35,14 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg mb-4">
               <Tv className="text-amber-400" size={20} />
-              British<span className="text-amber-400">IPTV</span>
+              Multivision<span className="text-amber-400">IPTV</span>
             </Link>
             <p className="text-zinc-400 text-sm leading-relaxed mb-4">
               The UK&apos;s most reliable IPTV service. 50,000+ channels, 4K quality, zero buffering.
             </p>
             <div className="flex flex-col gap-2">
               <a
-                href="https://wa.me/212707711512?text=iptv-british.com%20-%20Free%203-Hour%20Trial"
+                href="https://wa.me/212710141872?text=multivision-iptv.com%20-%20Free%203-Hour%20Trial"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-fit bg-amber-500 hover:bg-amber-400 text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors"
@@ -55,7 +55,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white text-xs transition-colors"
               >
-                WhatsApp: +212 707 711 512
+                WhatsApp: +212 710-141872
               </a>
               <a
                 href={`mailto:${EMAIL}`}
@@ -90,7 +90,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-zinc-500 text-xs">
-            &copy; {new Date().getFullYear()} BritishIPTV. All rights reserved.
+            &copy; {new Date().getFullYear()} MultivisionIPTV. All rights reserved.
           </p>
           <p className="text-zinc-600 text-xs">
             For entertainment purposes. Please comply with local laws.

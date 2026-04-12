@@ -8,33 +8,33 @@ import WhatsAppButton from "../components/WhatsAppButton";
 import { products } from "../lib/products";
 
 export const metadata: Metadata = {
-  title: "British IPTV Plans & Pricing — From £15 | British IPTV",
+  title: "Multivision IPTV Plans & Pricing — From £15 | Multivision IPTV",
   description:
-    "Compare all British IPTV subscription plans from £15. 50,000+ channels, 4K Ultra HD, 7-day catch-up. Choose 1, 3, 6, 12, or 24 months. No contract. Instant activation.",
-  alternates: { canonical: "https://iptv-british.com/product" },
+    "Compare all Multivision IPTV subscription plans from £15. 50,000+ channels, 4K Ultra HD, 7-day catch-up. Choose 1, 3, 6, 12, or 24 months. No contract. Instant activation.",
+  alternates: { canonical: "https://multivision-iptv.com/product" },
   openGraph: {
-    title: "British IPTV Plans & Pricing — From £15 | British IPTV",
+    title: "Multivision IPTV Plans & Pricing — From £15 | Multivision IPTV",
     description:
-      "50,000+ channels, 4K streaming, 7-day catch-up. Plans from £15. Compare 1, 3, 6, 12 and 24-month British IPTV subscriptions.",
-    url: "https://iptv-british.com/product",
+      "50,000+ channels, 4K streaming, 7-day catch-up. Plans from £15. Compare 1, 3, 6, 12 and 24-month Multivision IPTV subscriptions.",
+    url: "https://multivision-iptv.com/product",
   },
 };
 
 const catalogSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: "British IPTV Subscription",
+  name: "Multivision IPTV Subscription",
   description:
-    "Premium British IPTV subscription with 50,000+ live channels, 200,000+ VODs, 4K Ultra HD quality, 7-day catch-up TV, and 24/7 support.",
-  image: "https://iptv-british.com/og-image.svg",
-  brand: { "@type": "Brand", name: "British IPTV" },
+    "Premium Multivision IPTV subscription with 50,000+ live channels, 200,000+ VODs, 4K Ultra HD quality, 7-day catch-up TV, and 24/7 support.",
+  image: "https://multivision-iptv.com/og-image.svg",
+  brand: { "@type": "Brand", name: "Multivision IPTV" },
   offers: products.map((p) => ({
     "@type": "Offer",
     name: p.name,
     price: p.price.toString(),
     priceCurrency: "GBP",
     availability: "https://schema.org/InStock",
-    url: `https://iptv-british.com/product/${p.slug}`,
+    url: `https://multivision-iptv.com/product/${p.slug}`,
   })),
   aggregateRating: {
     "@type": "AggregateRating",
@@ -48,12 +48,12 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://iptv-british.com" },
-    { "@type": "ListItem", position: 2, name: "Product", item: "https://iptv-british.com/product" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://multivision-iptv.com" },
+    { "@type": "ListItem", position: 2, name: "Product", item: "https://multivision-iptv.com/product" },
   ],
 };
 
-const TRIAL_LINK = "https://wa.me/212707711512?text=iptv-british.com%20-%20Free%203-Hour%20Trial";
+const TRIAL_LINK = "https://wa.me/212710141872?text=multivision-iptv.com%20-%20Free%203-Hour%20Trial";
 
 const planFeatures = [
   "50,000+ Live Channels",
@@ -90,19 +90,19 @@ const trustPoints = [
 ];
 
 const monthlyEquivalents: Record<string, string> = {
-  "1-month-british-iptv": "£15.00/mo",
-  "3-month-british-iptv": "£11.67/mo",
-  "6-month-british-iptv": "£7.50/mo",
-  "12-month-british-iptv": "£5.00/mo",
-  "24-month-british-iptv": "£4.58/mo",
+  "1-month-multivision-iptv": "£15.00/mo",
+  "3-month-multivision-iptv": "£11.67/mo",
+  "6-month-multivision-iptv": "£7.50/mo",
+  "12-month-multivision-iptv": "£5.00/mo",
+  "24-month-multivision-iptv": "£4.58/mo",
 };
 
 const devicesBySlug: Record<string, string> = {
-  "1-month-british-iptv": "Up to 4",
-  "3-month-british-iptv": "Up to 4",
-  "6-month-british-iptv": "Up to 4",
-  "12-month-british-iptv": "Up to 4",
-  "24-month-british-iptv": "Up to 4",
+  "1-month-multivision-iptv": "Up to 4",
+  "3-month-multivision-iptv": "Up to 4",
+  "6-month-multivision-iptv": "Up to 4",
+  "12-month-multivision-iptv": "Up to 4",
+  "24-month-multivision-iptv": "Up to 4",
 };
 
 export default function ProductCatalogPage() {
@@ -129,7 +129,7 @@ export default function ProductCatalogPage() {
             Pricing Plans
           </p>
           <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 leading-tight">
-            Choose Your British IPTV Plan
+            Choose Your Multivision IPTV Plan
           </h1>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto mb-8">
             All plans include the same premium features — 50,000+ channels, 4K quality, 7-day catch-up. The only difference is how long you subscribe and how much you save.
@@ -148,7 +148,7 @@ export default function ProductCatalogPage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {products.map((product) => {
-                const waLink = `https://wa.me/212707711512?text=${encodeURIComponent(product.whatsappMessage)}`;
+                const waLink = `https://wa.me/212710141872?text=${encodeURIComponent(product.whatsappMessage)}`;
                 return (
                   <div
                     key={product.slug}
@@ -292,7 +292,7 @@ export default function ProductCatalogPage() {
                             {p.badge}
                           </span>
                         )}
-                        {p.name.replace(" British IPTV", "")}
+                        {p.name.replace(" Multivision IPTV", "")}
                       </th>
                     ))}
                   </tr>
@@ -371,7 +371,7 @@ export default function ProductCatalogPage() {
           </div>
         </section>
 
-        {/* Why British IPTV */}
+        {/* Why Multivision IPTV */}
         <section className="py-24 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-14">
@@ -379,7 +379,7 @@ export default function ProductCatalogPage() {
                 Why Us
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
-                Why British IPTV?
+                Why Multivision IPTV?
               </h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -404,7 +404,7 @@ export default function ProductCatalogPage() {
               Not Sure Yet?
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Try British IPTV free for 3 hours
+              Try Multivision IPTV free for 3 hours
             </h2>
             <p className="text-zinc-400 text-lg mb-8">
               No credit card. No commitment. Just message us on WhatsApp and we&apos;ll activate your free trial in minutes.
@@ -419,7 +419,7 @@ export default function ProductCatalogPage() {
                 Start Free 3-Hour Trial
               </a>
               <Link
-                href="/product/6-month-british-iptv"
+                href="/product/6-month-multivision-iptv"
                 className="border border-white/15 hover:border-amber-500/40 text-zinc-300 hover:text-white font-medium px-8 py-3.5 rounded-full transition-colors text-sm w-full sm:w-auto text-center"
               >
                 View Most Popular Plan

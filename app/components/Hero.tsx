@@ -33,7 +33,7 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <a
-            href="https://wa.me/212707711512?text=iptv-british.com%20-%20Free%203-Hour%20Trial"
+            href="https://wa.me/212710141872?text=multivision-iptv.com%20-%20Free%203-Hour%20Trial"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-amber-500 hover:bg-amber-400 text-white font-semibold px-8 py-4 rounded-full text-base transition-colors w-full sm:w-auto"

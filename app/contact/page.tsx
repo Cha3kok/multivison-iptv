@@ -6,23 +6,23 @@ import Footer from "../components/Footer";
 import JsonLd from "../components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Contact British IPTV Support — 24/7 WhatsApp & Email",
+  title: "Contact Multivision IPTV Support — 24/7 WhatsApp & Email",
   description:
-    "Get instant help from British IPTV support. Available 24/7 via WhatsApp or email for setup, billing, and technical issues. Typical response: under 5 minutes.",
-  alternates: { canonical: "https://iptv-british.com/contact" },
+    "Get instant help from Multivision IPTV support. Available 24/7 via WhatsApp or email for setup, billing, and technical issues. Typical response: under 5 minutes.",
+  alternates: { canonical: "https://multivision-iptv.com/contact" },
   openGraph: {
-    title: "Contact British IPTV — 24/7 Support",
+    title: "Contact Multivision IPTV — 24/7 Support",
     description: "Reach our support team instantly via WhatsApp or email.",
-    url: "https://iptv-british.com/contact",
+    url: "https://multivision-iptv.com/contact",
   },
 };
 
 const contactSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  name: "Contact British IPTV",
-  url: "https://iptv-british.com/contact",
-  description: "Contact British IPTV support via WhatsApp or email.",
+  name: "Contact Multivision IPTV",
+  url: "https://multivision-iptv.com/contact",
+  description: "Contact Multivision IPTV support via WhatsApp or email.",
 };
 
 const channels = [
@@ -31,18 +31,18 @@ const channels = [
     title: "WhatsApp",
     description: "The fastest way to reach us. Get a response within minutes, day or night.",
     action: "Chat on WhatsApp",
-    href: "https://wa.me/212707711512?text=Hi%2C%20I%27d%20like%20some%20help%20with%20British%20IPTV",
+    href: "https://wa.me/212710141872?text=Hi%2C%20I%27d%20like%20some%20help%20with%20Multivision%20IPTV",
     highlight: true,
-    detail: "+212 707 711 512",
+    detail: "+212 710-141872",
   },
   {
     icon: Mail,
     title: "Email",
     description: "For billing questions, refund requests, or detailed technical issues.",
     action: "Send an Email",
-    href: "mailto:goldengateiptv@gmail.com",
+    href: "mailto:multivisonsupport@gmail.com",
     highlight: false,
-    detail: "goldengateiptv@gmail.com",
+    detail: "multivisonsupport@gmail.com",
   },
 ];
 

@@ -26,11 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://iptv-british.com/blog/${post.slug}`,
+      url: `https://multivision-iptv.com/blog/${post.slug}`,
       type: "article",
       publishedTime: post.date,
     },
-    alternates: { canonical: `https://iptv-british.com/blog/${post.slug}` },
+    alternates: { canonical: `https://multivision-iptv.com/blog/${post.slug}` },
   };
 }
 
@@ -99,23 +99,23 @@ export default async function BlogPostPage({ params }: Props) {
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    image: "https://iptv-british.com/og-image.svg",
+    image: "https://multivision-iptv.com/og-image.svg",
     datePublished: post.date,
     dateModified: post.date,
-    url: `https://iptv-british.com/blog/${post.slug}`,
+    url: `https://multivision-iptv.com/blog/${post.slug}`,
     author: {
       "@type": "Organization",
-      name: "BritishIPTV",
-      url: "https://iptv-british.com",
-      logo: "https://iptv-british.com/logo.png",
+      name: "MultivisionIPTV",
+      url: "https://multivision-iptv.com",
+      logo: "https://multivision-iptv.com/logo.png",
     },
     publisher: {
       "@type": "Organization",
-      name: "BritishIPTV",
-      url: "https://iptv-british.com",
+      name: "MultivisionIPTV",
+      url: "https://multivision-iptv.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://iptv-british.com/logo.png",
+        url: "https://multivision-iptv.com/logo.png",
       },
     },
   };
@@ -128,19 +128,19 @@ export default async function BlogPostPage({ params }: Props) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://iptv-british.com",
+        item: "https://multivision-iptv.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://iptv-british.com/blog",
+        item: "https://multivision-iptv.com/blog",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: post.title,
-        item: `https://iptv-british.com/blog/${post.slug}`,
+        item: `https://multivision-iptv.com/blog/${post.slug}`,
       },
     ],
   };
@@ -190,7 +190,7 @@ export default async function BlogPostPage({ params }: Props) {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://wa.me/212707711512?text=iptv-british.com%20-%20Free%203-Hour%20Trial"
+              href="https://wa.me/212710141872?text=multivision-iptv.com%20-%20Free%203-Hour%20Trial"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-amber-500 hover:bg-amber-400 text-white font-semibold px-6 py-3 rounded-full text-sm transition-colors"
@@ -198,7 +198,7 @@ export default async function BlogPostPage({ params }: Props) {
               Start Free Trial
             </a>
             <a
-              href="https://wa.me/212707711512?text=Hi%2C%20I%27d%20like%20more%20information"
+              href="https://wa.me/212710141872?text=Hi%2C%20I%27d%20like%20more%20information"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-6 py-3 rounded-full text-sm transition-colors"

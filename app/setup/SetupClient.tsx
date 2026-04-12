@@ -92,7 +92,7 @@ const devices: Device[] = [
       },
       {
         title: "Name Your Playlist",
-        body: "Give your playlist a name (e.g. BritishIPTV) and tap 'Add'. TiviMate will download all your channels — this may take a minute.",
+        body: "Give your playlist a name (e.g. MultivisionIPTV) and tap 'Add'. TiviMate will download all your channels — this may take a minute.",
       },
       {
         title: "Browse & Watch",
@@ -329,7 +329,7 @@ export default function SetupClient() {
                 <p className="text-zinc-400 text-sm">Our team will set it up for you — free of charge.</p>
               </div>
               <a
-                href="https://wa.me/212707711512?text=Hi%2C%20I%20need%20help%20setting%20up%20my%20IPTV"
+                href="https://wa.me/212710141872?text=Hi%2C%20I%20need%20help%20setting%20up%20my%20IPTV"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-shrink-0 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-6 py-3 rounded-full text-sm transition-colors"

@@ -17,13 +17,13 @@ import SocialProof from "./components/SocialProof";
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "British IPTV",
-  url: "https://iptv-british.com",
-  logo: "https://iptv-british.com/logo.png",
+  name: "Multivision IPTV",
+  url: "https://multivision-iptv.com",
+  logo: "https://multivision-iptv.com/logo.png",
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer support",
-    email: "goldengateiptv@gmail.com",
+    email: "multivisonsupport@gmail.com",
     availableLanguage: "English",
   },
 };
@@ -31,10 +31,10 @@ const organizationSchema = {
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: "British IPTV Subscription",
+  name: "Multivision IPTV Subscription",
   description:
     "Stream 50,000+ live UK and international channels in 4K Ultra HD. No buffering, 7-day catch-up, works on any device.",
-  brand: { "@type": "Brand", name: "British IPTV" },
+  brand: { "@type": "Brand", name: "Multivision IPTV" },
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "GBP",
@@ -62,19 +62,19 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://iptv-british.com",
+      item: "https://multivision-iptv.com",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Pricing",
-      item: "https://iptv-british.com#pricing",
+      item: "https://multivision-iptv.com#pricing",
     },
     {
       "@type": "ListItem",
       position: 3,
       name: "Setup",
-      item: "https://iptv-british.com#setup",
+      item: "https://multivision-iptv.com#setup",
     },
   ],
 };
@@ -85,7 +85,7 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What devices does British IPTV work on?",
+      name: "What devices does Multivision IPTV work on?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Our service works on Smart TVs, Amazon Firestick, Android TV boxes, Android phones, iPhones, iPads, MAG boxes, and any IPTV player.",

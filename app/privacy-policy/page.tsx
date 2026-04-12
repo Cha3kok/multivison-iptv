@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import LegalPage from "../components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — British IPTV | Your Data Protection",
-  description: "Learn how British IPTV collects, uses, and protects your personal data. We prioritize your privacy and security. Full transparency on data handling.",
-  alternates: { canonical: "https://iptv-british.com/privacy-policy" },
+  title: "Privacy Policy — Multivision IPTV | Your Data Protection",
+  description: "Learn how Multivision IPTV collects, uses, and protects your personal data. We prioritize your privacy and security. Full transparency on data handling.",
+  alternates: { canonical: "https://multivision-iptv.com/privacy-policy" },
   openGraph: {
-    title: "Privacy Policy — British IPTV",
+    title: "Privacy Policy — Multivision IPTV",
     description: "How we protect and use your personal data.",
-    url: "https://iptv-british.com/privacy-policy",
+    url: "https://multivision-iptv.com/privacy-policy",
   },
 };
 
@@ -67,7 +67,7 @@ export default function PrivacyPolicy() {
         },
         {
           heading: "8. Contact",
-          body: "For any privacy-related queries or to exercise your rights, contact us at goldengateiptv@gmail.com. We will respond within 30 days.",
+          body: "For any privacy-related queries or to exercise your rights, contact us at multivisonsupport@gmail.com. We will respond within 30 days.",
         },
       ]}
     />

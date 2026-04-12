@@ -10,13 +10,13 @@ import JsonLd from "../components/JsonLd";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "IPTV guides, tips, troubleshooting and comparisons. Learn how to get the most from your British IPTV subscription.",
+    "IPTV guides, tips, troubleshooting and comparisons. Learn how to get the most from your Multivision IPTV subscription.",
   openGraph: {
-    title: "Blog — British IPTV",
+    title: "Blog — Multivision IPTV",
     description: "IPTV guides, tips, troubleshooting and comparisons.",
-    url: "https://iptv-british.com/blog",
+    url: "https://multivision-iptv.com/blog",
   },
-  alternates: { canonical: "https://iptv-british.com/blog" },
+  alternates: { canonical: "https://multivision-iptv.com/blog" },
 };
 
 const categoryColors: Record<string, string> = {
@@ -47,13 +47,13 @@ export default function BlogPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://iptv-british.com",
+        item: "https://multivision-iptv.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://iptv-british.com/blog",
+        item: "https://multivision-iptv.com/blog",
       },
     ],
   };
@@ -61,14 +61,14 @@ export default function BlogPage() {
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "British IPTV Blog",
+    name: "Multivision IPTV Blog",
     description:
-      "IPTV guides, tips, troubleshooting and comparisons. Learn how to get the most from your British IPTV subscription.",
-    url: "https://iptv-british.com/blog",
+      "IPTV guides, tips, troubleshooting and comparisons. Learn how to get the most from your Multivision IPTV subscription.",
+    url: "https://multivision-iptv.com/blog",
     mainEntity: posts.map((post) => ({
       "@type": "Article",
       headline: post.title,
-      url: `https://iptv-british.com/blog/${post.slug}`,
+      url: `https://multivision-iptv.com/blog/${post.slug}`,
       datePublished: post.date,
       description: post.excerpt,
     })),

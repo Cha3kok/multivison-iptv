@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    q: "What devices does British IPTV work on?",
+    q: "What devices does Multivision IPTV work on?",
     a: "Our service works on virtually any device: Smart TVs (Samsung, LG, Sony), Amazon Firestick, Android TV boxes, Android phones, iPhones, iPads, MAG boxes, and any IPTV player like TiviMate, IPTV Smarters, or Perfect Player.",
   },
   {

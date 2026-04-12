@@ -21,7 +21,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 text-white font-bold text-lg">
           <Tv className="text-amber-400" size={22} />
-          British<span className="text-amber-400">IPTV</span>
+          Multivision<span className="text-amber-400">IPTV</span>
         </a>
 
         {/* Desktop links */}

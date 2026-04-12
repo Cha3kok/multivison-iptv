@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import LegalPage from "../components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Refund Policy — British IPTV | Money-Back Guarantee",
-  description: "British IPTV refund policy: 48-hour money-back guarantee if service doesn't work as described. Check your refund rights and eligibility terms.",
-  alternates: { canonical: "https://iptv-british.com/refund-policy" },
+  title: "Refund Policy — Multivision IPTV | Money-Back Guarantee",
+  description: "Multivision IPTV refund policy: 48-hour money-back guarantee if service doesn't work as described. Check your refund rights and eligibility terms.",
+  alternates: { canonical: "https://multivision-iptv.com/refund-policy" },
   openGraph: {
-    title: "Refund Policy — British IPTV",
+    title: "Refund Policy — Multivision IPTV",
     description: "48-hour refund guarantee if unsatisfied with service.",
-    url: "https://iptv-british.com/refund-policy",
+    url: "https://multivision-iptv.com/refund-policy",
   },
 };
 
@@ -40,7 +40,7 @@ export default function RefundPolicy() {
         {
           heading: "How to Request a Refund",
           body: [
-            "Contact us at goldengateiptv@gmail.com or via WhatsApp.",
+            "Contact us at multivisonsupport@gmail.com or via WhatsApp.",
             "Provide your account details and a description of the issue.",
             "Our team will review your request within 24 hours.",
             "Approved refunds are processed within 5–10 business days to your original payment method.",
@@ -52,7 +52,7 @@ export default function RefundPolicy() {
         },
         {
           heading: "Contact Us",
-          body: "For refund requests or billing queries, contact our support team at goldengateiptv@gmail.com or via WhatsApp at +212 707 711 512. We aim to respond within 24 hours.",
+          body: "For refund requests or billing queries, contact our support team at multivisonsupport@gmail.com or via WhatsApp at +212 710-141872. We aim to respond within 24 hours.",
         },
       ]}
     />

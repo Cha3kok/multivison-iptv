@@ -34,18 +34,18 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    slug: "1-month-british-iptv",
-    name: "1 Month British IPTV",
+    slug: "1-month-multivision-iptv",
+    name: "1 Month Multivision IPTV",
     price: 15,
     period: "one-off payment",
     highlight: false,
-    metaTitle: "1 Month British IPTV — £15 | 50,000+ Channels, 4K HD | British IPTV",
+    metaTitle: "1 Month Multivision IPTV — £15 | 50,000+ Channels, 4K HD | Multivision IPTV",
     metaDescription:
-      "Get 1 month of British IPTV for just £15. 50,000+ live channels, 4K Ultra HD, 7-day catch-up, zero buffering. No contract. Instant activation. Free 3-hour trial available.",
-    h1: "1 Month British IPTV — £15 One-Off Payment",
+      "Get 1 month of Multivision IPTV for just £15. 50,000+ live channels, 4K Ultra HD, 7-day catch-up, zero buffering. No contract. Instant activation. Free 3-hour trial available.",
+    h1: "1 Month Multivision IPTV — £15 One-Off Payment",
     heroSubtitle:
-      "The perfect way to try British IPTV risk-free. Full access to 50,000+ live channels, 4K streaming, and 7-day catch-up TV for just £15. No contracts, no recurring charges.",
-    whatsappMessage: "iptv-british.com - I'd like to subscribe to the 1 Month British IPTV plan (£15)",
+      "The perfect way to try Multivision IPTV risk-free. Full access to 50,000+ live channels, 4K streaming, and 7-day catch-up TV for just £15. No contracts, no recurring charges.",
+    whatsappMessage: "multivision-iptv.com - I'd like to subscribe to the 1 Month Multivision IPTV plan (£15)",
     whoIsItFor: [
       {
         title: "First-Time IPTV Users",
@@ -60,7 +60,7 @@ export const products: Product[] = [
       {
         title: "Seasonal or Event Viewers",
         description:
-          "Want access for a specific event — a sports tournament, a TV season finale, or the festive Christmas TV lineup? A single month of British IPTV covers you perfectly without locking you into a longer commitment.",
+          "Want access for a specific event — a sports tournament, a TV season finale, or the festive Christmas TV lineup? A single month of Multivision IPTV covers you perfectly without locking you into a longer commitment.",
       },
     ],
     faq: [
@@ -107,18 +107,18 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "3-month-british-iptv",
-    name: "3 Months British IPTV",
+    slug: "3-month-multivision-iptv",
+    name: "3 Months Multivision IPTV",
     price: 35,
     period: "one-off payment",
     highlight: false,
-    metaTitle: "3 Months British IPTV — £35 | Save vs Monthly | British IPTV",
+    metaTitle: "3 Months Multivision IPTV — £35 | Save vs Monthly | Multivision IPTV",
     metaDescription:
-      "3 months of British IPTV for £35 — that's under £12/month. 50,000+ channels, 4K Ultra HD, 7-day catch-up. No contract, instant activation. Try free for 3 hours.",
-    h1: "3 Months British IPTV — £35 One-Off Payment",
+      "3 months of Multivision IPTV for £35 — that's under £12/month. 50,000+ channels, 4K Ultra HD, 7-day catch-up. No contract, instant activation. Try free for 3 hours.",
+    h1: "3 Months Multivision IPTV — £35 One-Off Payment",
     heroSubtitle:
-      "Three months of premium British IPTV for just £35 — saving you £10 vs rolling monthly. Ideal for casual viewers who want reliable access without the cost of a long-term subscription.",
-    whatsappMessage: "iptv-british.com - I'd like to subscribe to the 3 Month British IPTV plan (£35)",
+      "Three months of premium Multivision IPTV for just £35 — saving you £10 vs rolling monthly. Ideal for casual viewers who want reliable access without the cost of a long-term subscription.",
+    whatsappMessage: "multivision-iptv.com - I'd like to subscribe to the 3 Month Multivision IPTV plan (£35)",
     whoIsItFor: [
       {
         title: "Casual TV Viewers",
@@ -176,19 +176,19 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "6-month-british-iptv",
-    name: "6 Months British IPTV",
+    slug: "6-month-multivision-iptv",
+    name: "6 Months Multivision IPTV",
     price: 45,
     period: "one-off payment",
     badge: "Most Popular",
     highlight: true,
-    metaTitle: "6 Months British IPTV — £45 | Most Popular Plan | British IPTV",
+    metaTitle: "6 Months Multivision IPTV — £45 | Most Popular Plan | Multivision IPTV",
     metaDescription:
-      "6 months of British IPTV for just £45 — only £7.50/month. Most popular plan. 50,000+ channels, 4K Ultra HD, 7-day catch-up, anti-freeze technology. Instant setup.",
-    h1: "6 Months British IPTV — £45 One-Off Payment",
+      "6 months of Multivision IPTV for just £45 — only £7.50/month. Most popular plan. 50,000+ channels, 4K Ultra HD, 7-day catch-up, anti-freeze technology. Instant setup.",
+    h1: "6 Months Multivision IPTV — £45 One-Off Payment",
     heroSubtitle:
-      "Our most popular plan for good reason. Six months of premium British IPTV for just £45 — that's £7.50 per month. The perfect balance of savings and flexibility for regular viewers.",
-    whatsappMessage: "iptv-british.com - I'd like to subscribe to the 6 Month British IPTV plan (£45)",
+      "Our most popular plan for good reason. Six months of premium Multivision IPTV for just £45 — that's £7.50 per month. The perfect balance of savings and flexibility for regular viewers.",
+    whatsappMessage: "multivision-iptv.com - I'd like to subscribe to the 6 Month Multivision IPTV plan (£45)",
     whoIsItFor: [
       {
         title: "Regular TV Watchers",
@@ -250,18 +250,18 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "12-month-british-iptv",
-    name: "12 Months British IPTV",
+    slug: "12-month-multivision-iptv",
+    name: "12 Months Multivision IPTV",
     price: 60,
     period: "one-off payment",
     highlight: false,
-    metaTitle: "12 Months British IPTV — £60 | Only £5/Month | British IPTV",
+    metaTitle: "12 Months Multivision IPTV — £60 | Only £5/Month | Multivision IPTV",
     metaDescription:
-      "12 months of British IPTV for just £60 — that's £5 per month. Full year of 50,000+ channels, 4K streaming, 7-day catch-up. Best value for committed viewers. Instant setup.",
-    h1: "12 Months British IPTV — £60 One-Off Payment",
+      "12 months of Multivision IPTV for just £60 — that's £5 per month. Full year of 50,000+ channels, 4K streaming, 7-day catch-up. Best value for committed viewers. Instant setup.",
+    h1: "12 Months Multivision IPTV — £60 One-Off Payment",
     heroSubtitle:
-      "A full year of premium British IPTV for just £60. At £5 per month, this is the plan for viewers who know they love IPTV and want guaranteed access across every sports season and TV schedule for the year ahead.",
-    whatsappMessage: "iptv-british.com - I'd like to subscribe to the 12 Month British IPTV plan (£60)",
+      "A full year of premium Multivision IPTV for just £60. At £5 per month, this is the plan for viewers who know they love IPTV and want guaranteed access across every sports season and TV schedule for the year ahead.",
+    whatsappMessage: "multivision-iptv.com - I'd like to subscribe to the 12 Month Multivision IPTV plan (£60)",
     whoIsItFor: [
       {
         title: "Committed TV Households",
@@ -323,19 +323,19 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "24-month-british-iptv",
-    name: "24 Months British IPTV",
+    slug: "24-month-multivision-iptv",
+    name: "24 Months Multivision IPTV",
     price: 110,
     period: "one-off payment",
     badge: "Best Value",
     highlight: false,
-    metaTitle: "24 Months British IPTV — £110 | Best Value | Only £4.58/Month | British IPTV",
+    metaTitle: "24 Months Multivision IPTV — £110 | Best Value | Only £4.58/Month | Multivision IPTV",
     metaDescription:
-      "24 months of British IPTV for £110 — just £4.58/month. Best value plan. 50,000+ channels, 4K streaming, 7-day catch-up. Two full years with one payment. Instant setup.",
-    h1: "24 Months British IPTV — £110 One-Off Payment",
+      "24 months of Multivision IPTV for £110 — just £4.58/month. Best value plan. 50,000+ channels, 4K streaming, 7-day catch-up. Two full years with one payment. Instant setup.",
+    h1: "24 Months Multivision IPTV — £110 One-Off Payment",
     heroSubtitle:
-      "The best value IPTV subscription available. Two full years of premium British IPTV for £110 — just £4.58 per month. One payment, two years of 50,000+ channels, 4K streaming, and zero hassle.",
-    whatsappMessage: "iptv-british.com - I'd like to subscribe to the 24 Month British IPTV plan (£110)",
+      "The best value IPTV subscription available. Two full years of premium Multivision IPTV for £110 — just £4.58 per month. One payment, two years of 50,000+ channels, 4K streaming, and zero hassle.",
+    whatsappMessage: "multivision-iptv.com - I'd like to subscribe to the 24 Month Multivision IPTV plan (£110)",
     whoIsItFor: [
       {
         title: "Long-Term IPTV Users",

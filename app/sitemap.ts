@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "./lib/mdx";
 
-const BASE_URL = "https://iptv-british.com";
+const BASE_URL = "https://multivision-iptv.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

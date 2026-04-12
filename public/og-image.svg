@@ -13,7 +13,7 @@
 
   <!-- Main text -->
   <text x="250" y="120" font-size="72" font-weight="bold" fill="#ffffff" font-family="Arial, sans-serif">
-    BritishIPTV
+    MultivisionIPTV
   </text>
 
   <text x="250" y="180" font-size="48" fill="#fbbf24" font-family="Arial, sans-serif">
@@ -41,6 +41,6 @@
 
   <!-- Domain -->
   <text x="1100" y="600" font-size="28" fill="#a1a1a1" font-family="Arial, sans-serif" text-anchor="end">
-    iptv-british.com
+    multivision-iptv.com
   </text>
 </svg>

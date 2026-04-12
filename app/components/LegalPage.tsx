@@ -58,8 +58,8 @@ export default function LegalPage({ badge, title, subtitle, lastUpdated, section
         <div className="pt-6 border-t border-white/5">
           <p className="text-zinc-500 text-sm">
             Questions about this policy? Contact us at{" "}
-            <a href="mailto:goldengateiptv@gmail.com" className="text-amber-400 hover:text-amber-300 transition-colors">
-              goldengateiptv@gmail.com
+            <a href="mailto:multivisonsupport@gmail.com" className="text-amber-400 hover:text-amber-300 transition-colors">
+              multivisonsupport@gmail.com
             </a>
           </p>
         </div>

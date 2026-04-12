@@ -1,85 +1,114 @@
 "use client";
 
 import { useState } from "react";
-import { Check } from "lucide-react";
+import { Check, Zap, Shield, Star, Rocket, Crown } from "lucide-react";
 
-const deviceOptions = [1, 2, 3, 4];
+type DeviceCount = 1 | 2 | 3 | 4;
+
+const deviceOptions: DeviceCount[] = [1, 2, 3, 4];
 
 const plans = [
   {
-    name: "1 Month",
-    basePrice: 15,
-    devicePrices: { 1: 15, 2: 20, 3: 25, 4: 30 },
-    period: "one-off",
-    description: "Perfect for getting started",
+    id: "1month",
+    icon: Zap,
+    name: "1 Month Plan",
+    subtitle: "Try our Premium IPTV Service",
+    prices: { 1: 19.99, 2: 29.99, 3: 39.99, 4: 49.99 },
+    period: { 1: "/month", 2: "/month", 3: "/month", 4: "/month" },
     highlight: false,
+    badge: null,
+    features: [
+      "4K / UHD Streaming Quality",
+      "21,000+ Live Channels",
+      "65,000+ VOD Movies & Series",
+      "All Sports & PPV Events",
+      "Anti-Freeze Technology",
+      "24/7 Customer Support",
+    ],
   },
   {
-    name: "3 Months",
-    basePrice: 35,
-    devicePrices: { 1: 35, 2: 45, 3: 55, 4: 65 },
-    period: "every 3 months",
-    description: "Great value for regular viewers",
+    id: "3months",
+    icon: Shield,
+    name: "3 Months Plan",
+    subtitle: "Quarterly Entertainment Hub",
+    prices: { 1: 39.99, 2: 59.99, 3: 74.99, 4: 89.99 },
+    period: { 1: "/3 months", 2: "/3 months", 3: "/3 months", 4: "/3 months" },
     highlight: false,
+    badge: null,
+    features: [
+      "Everything in Monthly Plan",
+      "Electronic Program Guide (EPG)",
+      "Instant Activation",
+      "Compatible with All Devices",
+      "No Hidden Fees",
+      "Priority Support",
+    ],
   },
   {
-    name: "6 Months",
-    basePrice: 45,
-    devicePrices: { 1: 45, 2: 60, 3: 75, 4: 90 },
-    period: "every 6 months",
-    badge: "Popular",
-    description: "Best balance of price and flexibility",
+    id: "12months",
+    icon: Star,
+    name: "12 Months Plan",
+    subtitle: "Best for Long-term Viewing",
+    prices: { 1: 79.99, 2: 119.99, 3: 149.99, 4: 179.99 },
+    period: { 1: "/year", 2: "/year", 3: "/year", 4: "/year" },
     highlight: true,
+    badge: "BEST SELLER",
+    features: [
+      "Everything in 6 Months Plan",
+      "Best Value — Save Over 50%",
+      "Anti-Freeze V10 Engine",
+      "Full VOD Library Access",
+      "Catch-Up TV (7 Days Replay)",
+      "VIP Dedicated Support",
+    ],
   },
   {
-    name: "12 Months",
-    basePrice: 60,
-    devicePrices: { 1: 60, 2: 80, 3: 100, 4: 120 },
-    period: "per year",
-    description: "Serious savings for committed viewers",
+    id: "6months",
+    icon: Rocket,
+    name: "6 Months Plan",
+    subtitle: "Most Balanced Choice",
+    prices: { 1: 55.99, 2: 84.99, 3: 109.99, 4: 134.99 },
+    period: { 1: "/6 months", 2: "/6 months", 3: "/6 months", 4: "/6 months" },
     highlight: false,
+    badge: null,
+    features: [
+      "Everything in 3 Months Plan",
+      "Premium Server Stability",
+      "Multi-Language Subtitles",
+      "All PPV & Boxing Events",
+      "Zero Buffer Guarantee",
+      "Instant Setup Guide",
+    ],
   },
   {
-    name: "24 Months",
-    basePrice: 110,
-    devicePrices: { 1: 110, 2: 145, 3: 180, 4: 215 },
-    period: "every 2 years",
-    badge: "Best Value",
-    description: "Maximum savings, set it and forget it",
+    id: "24months",
+    icon: Crown,
+    name: "24 Months Plan",
+    subtitle: "Ultimate Family Savings",
+    prices: { 1: 129.99, 2: 189.99, 3: 239.99, 4: 289.99 },
+    period: { 1: "/2 years", 2: "/2 years", 3: "/2 years", 4: "/2 years" },
     highlight: false,
+    badge: null,
+    features: [
+      "Everything in 12 Months Plan",
+      "Maximum Savings Guarantee",
+      "Premium VOD First Access",
+      "Family Sharing Mode",
+      "Custom Channel Lists",
+      "Lifetime Update Access",
+    ],
   },
-];
-
-const features = [
-  "50,000+ Live Channels",
-  "4K Ultra HD Quality",
-  "7-Day Catch-Up TV",
-  "VOD Library (200,000+ titles)",
-  "24/7 Priority Support",
-  "Free Setup Assistance",
-];
-
-const highlights = [
-  { icon: "📱", label: "Watch on any device" },
-  { icon: "❄️", label: "Anti-Freeze™ 9.8 Technology" },
-  { icon: "🎬", label: "+200K Movies & Series (VOD)" },
-  { icon: "📺", label: "+50,000 Live Premium Channels" },
-  { icon: "🎥", label: "4K / HD / FHD / UHD Quality" },
-  { icon: "🔄", label: "Free & Auto Updates" },
-  { icon: "📅", label: "Available EPG" },
-  { icon: "↩️", label: "7-Day Refund" },
-  { icon: "🎧", label: "24/7 Free Support" },
-  { icon: "🔒", label: "Privacy Protection & Built-in VPN" },
 ];
 
 export default function Pricing() {
-  const [devices, setDevices] = useState<1 | 2 | 3 | 4>(1);
+  const [devices, setDevices] = useState<DeviceCount>(1);
 
   return (
-    <section id="pricing" className="bg-[#0a0a0a] py-24">
+    <section id="pricing" className="bg-[#0d0d0d] py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <p className="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-3">
             Pricing
           </p>
@@ -93,14 +122,12 @@ export default function Pricing() {
 
         {/* Device selector */}
         <div className="flex flex-col items-center mb-12">
-          <p className="text-zinc-400 text-sm mb-4">
-            How many devices do you need?
-          </p>
-          <div className="inline-flex bg-[#111111] border border-white/10 rounded-full p-1 gap-1">
+          <p className="text-zinc-400 text-sm mb-4">How many devices do you need?</p>
+          <div className="inline-flex bg-[#1a1a1a] border border-white/10 rounded-full p-1 gap-1">
             {deviceOptions.map((d) => (
               <button
                 key={d}
-                onClick={() => setDevices(d as 1 | 2 | 3 | 4)}
+                onClick={() => setDevices(d)}
                 className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                   devices === d
                     ? "bg-amber-500 text-white shadow"
@@ -114,87 +141,77 @@ export default function Pricing() {
         </div>
 
         {/* Plans grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-start mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
           {plans.map((plan) => {
-            const price = plan.devicePrices[devices as keyof typeof plan.devicePrices];
+            const price = plan.prices[devices];
+            const period = plan.period[devices];
+            const Icon = plan.icon;
+
             return (
               <div
-                key={plan.name}
-                className={`relative rounded-2xl p-6 border flex flex-col transition-all ${
+                key={plan.id}
+                className={`relative flex flex-col rounded-2xl border transition-all ${
                   plan.highlight
-                    ? "bg-gradient-to-br from-amber-500 to-amber-600 border-amber-400 shadow-2xl shadow-amber-900/40 scale-105"
-                    : "bg-[#111111] border-white/10 hover:border-white/20"
+                    ? "bg-[#111111] border-amber-500/60 shadow-[0_0_40px_rgba(245,158,11,0.15)] pb-8 pt-10 px-6 lg:-mt-4"
+                    : "bg-[#111111] border-white/10 hover:border-amber-500/30 p-6"
                 }`}
               >
+                {/* Badge */}
                 {plan.badge && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-white text-amber-500 text-[11px] font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-black text-[11px] font-bold px-4 py-1.5 rounded-full tracking-wider whitespace-nowrap">
                     {plan.badge}
                   </div>
                 )}
 
-                <p className={`font-bold text-base mb-0.5 ${plan.highlight ? "text-white" : "text-white"}`}>
-                  {plan.name}
-                </p>
-                <p className={`text-xs mb-4 ${plan.highlight ? "text-amber-100" : "text-zinc-500"}`}>
-                  {plan.description}
-                </p>
-
-                <div className="mb-1">
-                  <span className={`text-3xl font-bold ${plan.highlight ? "text-white" : "text-white"}`}>
-                    £{price}
-                  </span>
+                {/* Icon */}
+                <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-4 ${
+                  plan.highlight ? "bg-amber-500/20" : "bg-white/5"
+                }`}>
+                  <Icon size={18} className="text-amber-400" />
                 </div>
-                <p className={`text-xs mb-5 ${plan.highlight ? "text-amber-100" : "text-zinc-500"}`}>
-                  {plan.period} · {devices} {devices === 1 ? "connection" : "connections"}
-                </p>
 
+                {/* Plan name & subtitle */}
+                <p className="text-white font-bold text-base leading-tight mb-1">{plan.name}</p>
+                <p className="text-zinc-500 text-xs mb-5 leading-snug">{plan.subtitle}</p>
+
+                {/* Price */}
+                <div className="mb-5">
+                  <span className="text-white text-3xl font-bold">${price.toFixed(2)}</span>
+                  <span className="text-zinc-500 text-sm ml-1">{period}</span>
+                </div>
+
+                {/* Features */}
+                <ul className="space-y-2.5 mb-7 flex-1">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-zinc-300">
+                      <Check size={14} className="text-amber-400 flex-shrink-0 mt-0.5" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
                 <a
-                  href={`https://wa.me/212707711512?text=${encodeURIComponent(`iptv-british.com - ${plan.name} / ${devices} ${devices === 1 ? "Device" : "Devices"} - £${price}`)}`}
+                  href={`https://wa.me/212710141872?text=${encodeURIComponent(
+                    `multivision-iptv.com - ${plan.name} / ${devices} ${devices === 1 ? "Device" : "Devices"} - $${price.toFixed(2)}`
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-auto block text-center font-semibold py-2.5 rounded-full text-sm transition-colors ${
+                  className={`block text-center font-semibold py-2.5 rounded-full text-sm transition-colors ${
                     plan.highlight
-                      ? "bg-white text-amber-500 hover:bg-amber-50"
-                      : "bg-amber-500 text-white hover:bg-amber-400"
+                      ? "bg-amber-500 hover:bg-amber-400 text-white"
+                      : "bg-white/10 hover:bg-amber-500 hover:text-white text-zinc-300"
                   }`}
                 >
-                  Subscribe Now
+                  Get Started
                 </a>
               </div>
             );
           })}
         </div>
 
-        {/* Features included in all plans */}
-        <div className="bg-[#111111] border border-white/5 rounded-2xl p-7">
-          <p className="text-zinc-400 text-xs uppercase tracking-wider font-medium mb-5">
-            Everything included in every plan
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {features.map((f) => (
-              <div key={f} className="flex items-start gap-2 text-sm text-zinc-300">
-                <Check size={14} className="text-amber-400 flex-shrink-0 mt-0.5" />
-                {f}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Highlights grid */}
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-          {highlights.map((h) => (
-            <div
-              key={h.label}
-              className="flex items-center gap-3 bg-[#111111] border border-white/5 rounded-xl px-4 py-3"
-            >
-              <span className="text-xl flex-shrink-0">{h.icon}</span>
-              <span className="text-zinc-300 text-xs font-medium leading-snug">{h.label}</span>
-            </div>
-          ))}
-        </div>
-
-        <p className="text-center text-zinc-500 text-sm mt-8">
-          All plans include a free 3-hour trial. Contact us on WhatsApp to activate it — no credit card required.
+        <p className="text-center text-zinc-600 text-sm mt-10">
+          All plans include a free 3-hour trial. Contact us on WhatsApp — no credit card required.
         </p>
       </div>
     </section>

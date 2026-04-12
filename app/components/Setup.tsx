@@ -79,7 +79,7 @@ export default function Setup() {
             <p className="text-zinc-400 text-sm">Our support team will set everything up for you — for free.</p>
           </div>
           <a
-            href="https://wa.me/212707711512?text=Hi%2C%20I%20need%20help%20setting%20up%20my%20IPTV"
+            href="https://wa.me/212710141872?text=Hi%2C%20I%20need%20help%20setting%20up%20my%20IPTV"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-shrink-0 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-6 py-3 rounded-full text-sm transition-colors"

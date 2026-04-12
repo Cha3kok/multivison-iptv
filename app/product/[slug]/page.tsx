@@ -23,16 +23,16 @@ export async function generateMetadata({
   return {
     title: product.metaTitle,
     description: product.metaDescription,
-    alternates: { canonical: `https://iptv-british.com/product/${slug}` },
+    alternates: { canonical: `https://multivision-iptv.com/product/${slug}` },
     openGraph: {
       title: product.metaTitle,
       description: product.metaDescription,
-      url: `https://iptv-british.com/product/${slug}`,
+      url: `https://multivision-iptv.com/product/${slug}`,
     },
   };
 }
 
-const TRIAL_LINK = "https://wa.me/212707711512?text=iptv-british.com%20-%20Free%203-Hour%20Trial";
+const TRIAL_LINK = "https://wa.me/212710141872?text=multivision-iptv.com%20-%20Free%203-Hour%20Trial";
 
 const whatsIncluded = [
   "50,000+ Live Channels",
@@ -51,11 +51,11 @@ const whatsIncluded = [
 
 function getMonths(slug: string): string {
   const map: Record<string, string> = {
-    "1-month-british-iptv": "1 Month",
-    "3-month-british-iptv": "3 Months",
-    "6-month-british-iptv": "6 Months",
-    "12-month-british-iptv": "12 Months",
-    "24-month-british-iptv": "24 Months",
+    "1-month-multivision-iptv": "1 Month",
+    "3-month-multivision-iptv": "3 Months",
+    "6-month-multivision-iptv": "6 Months",
+    "12-month-multivision-iptv": "12 Months",
+    "24-month-multivision-iptv": "24 Months",
   };
   return map[slug] ?? "—";
 }
@@ -70,21 +70,21 @@ export default async function ProductPage({
   if (!product) notFound();
 
   const relatedProducts = getRelatedProducts(slug, 3);
-  const waSubscribeLink = `https://wa.me/212707711512?text=${encodeURIComponent(product.whatsappMessage)}`;
+  const waSubscribeLink = `https://wa.me/212710141872?text=${encodeURIComponent(product.whatsappMessage)}`;
 
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
     description: product.metaDescription,
-    image: "https://iptv-british.com/og-image.svg",
-    brand: { "@type": "Brand", name: "British IPTV" },
+    image: "https://multivision-iptv.com/og-image.svg",
+    brand: { "@type": "Brand", name: "Multivision IPTV" },
     offers: {
       "@type": "Offer",
       price: product.price.toString(),
       priceCurrency: "GBP",
       availability: "https://schema.org/InStock",
-      url: `https://iptv-british.com/product/${product.slug}`,
+      url: `https://multivision-iptv.com/product/${product.slug}`,
     },
     aggregateRating: {
       "@type": "AggregateRating",
@@ -98,13 +98,13 @@ export default async function ProductPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://iptv-british.com" },
-      { "@type": "ListItem", position: 2, name: "Product", item: "https://iptv-british.com/product" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://multivision-iptv.com" },
+      { "@type": "ListItem", position: 2, name: "Product", item: "https://multivision-iptv.com/product" },
       {
         "@type": "ListItem",
         position: 3,
         name: product.name,
-        item: `https://iptv-british.com/product/${product.slug}`,
+        item: `https://multivision-iptv.com/product/${product.slug}`,
       },
     ],
   };
@@ -213,7 +213,7 @@ export default async function ProductPage({
                   {/* Amber overlay / channel info */}
                   <rect x="26" y="140" width="268" height="32" rx="0" fill="rgba(0,0,0,0.65)" />
                   <text x="40" y="160" fill="#f59e0b" fontSize="11" fontFamily="monospace" fontWeight="bold">
-                    British IPTV
+                    Multivision IPTV
                   </text>
                   <text x="190" y="160" fill="white" fontSize="10" fontFamily="monospace">
                     50,000+ Channels
@@ -373,7 +373,7 @@ export default async function ProductPage({
               Ready to Watch?
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Ready to start watching British IPTV?
+              Ready to start watching Multivision IPTV?
             </h2>
             <p className="text-zinc-400 text-lg mb-8 max-w-xl mx-auto">
               Get the {product.name} for £{product.price} — or try us free for 3 hours with no credit card required.
@@ -407,12 +407,12 @@ export default async function ProductPage({
                 Other Plans
               </p>
               <h2 className="text-2xl font-bold text-white">
-                Explore other British IPTV plans
+                Explore other Multivision IPTV plans
               </h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {relatedProducts.map((rel) => {
-                const relWaLink = `https://wa.me/212707711512?text=${encodeURIComponent(rel.whatsappMessage)}`;
+                const relWaLink = `https://wa.me/212710141872?text=${encodeURIComponent(rel.whatsappMessage)}`;
                 return (
                   <div
                     key={rel.slug}

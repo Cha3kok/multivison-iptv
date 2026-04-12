@@ -37,7 +37,7 @@ export default function StickyBar() {
 
         <div className="flex items-center gap-3 flex-shrink-0">
           <a
-            href="https://wa.me/212707711512?text=iptv-british.com%20-%20Free%203-Hour%20Trial"
+            href="https://wa.me/212710141872?text=multivision-iptv.com%20-%20Free%203-Hour%20Trial"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-amber-500 hover:bg-amber-400 text-white text-sm font-semibold px-5 py-2 rounded-full transition-colors whitespace-nowrap"

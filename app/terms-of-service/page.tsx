@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import LegalPage from "../components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — British IPTV | IPTV Subscription Terms",
-  description: "Read British IPTV's terms and conditions. Understand your rights, responsibilities, and acceptable use policy for our IPTV streaming service.",
-  alternates: { canonical: "https://iptv-british.com/terms-of-service" },
+  title: "Terms of Service — Multivision IPTV | IPTV Subscription Terms",
+  description: "Read Multivision IPTV's terms and conditions. Understand your rights, responsibilities, and acceptable use policy for our IPTV streaming service.",
+  alternates: { canonical: "https://multivision-iptv.com/terms-of-service" },
   openGraph: {
-    title: "Terms of Service — British IPTV",
-    description: "Terms and conditions for British IPTV service.",
-    url: "https://iptv-british.com/terms-of-service",
+    title: "Terms of Service — Multivision IPTV",
+    description: "Terms and conditions for Multivision IPTV service.",
+    url: "https://multivision-iptv.com/terms-of-service",
   },
 };
 
@@ -22,11 +22,11 @@ export default function TermsOfService() {
       sections={[
         {
           heading: "1. Acceptance of Terms",
-          body: "By subscribing to or using the BritishIPTV service, you agree to be bound by these Terms of Service. If you do not agree, do not use the service.",
+          body: "By subscribing to or using the MultivisionIPTV service, you agree to be bound by these Terms of Service. If you do not agree, do not use the service.",
         },
         {
           heading: "2. Service Description",
-          body: "BritishIPTV provides an Internet Protocol Television (IPTV) streaming service giving access to live TV channels, video-on-demand content, and catch-up television via the internet. The service is provided on a subscription basis.",
+          body: "MultivisionIPTV provides an Internet Protocol Television (IPTV) streaming service giving access to live TV channels, video-on-demand content, and catch-up television via the internet. The service is provided on a subscription basis.",
         },
         {
           heading: "3. Acceptable Use",
@@ -52,11 +52,11 @@ export default function TermsOfService() {
         },
         {
           heading: "7. Intellectual Property",
-          body: "All content streamed through the service is owned by the respective broadcasters and rights holders. BritishIPTV makes no claim of ownership over third-party content. The BritishIPTV brand, logo, and website content are our intellectual property.",
+          body: "All content streamed through the service is owned by the respective broadcasters and rights holders. MultivisionIPTV makes no claim of ownership over third-party content. The MultivisionIPTV brand, logo, and website content are our intellectual property.",
         },
         {
           heading: "8. Limitation of Liability",
-          body: "To the maximum extent permitted by law, BritishIPTV shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the service. Our total liability to you shall not exceed the amount paid in the 30 days preceding any claim.",
+          body: "To the maximum extent permitted by law, MultivisionIPTV shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the service. Our total liability to you shall not exceed the amount paid in the 30 days preceding any claim.",
         },
         {
           heading: "9. Termination",

@@ -7,14 +7,14 @@ import WhatsAppButton from "../components/WhatsAppButton";
 import JsonLd from "../components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "About British IPTV — Premium UK IPTV Service Provider",
+  title: "About Multivision IPTV — Premium UK IPTV Service Provider",
   description:
-    "Discover British IPTV: trusted by 25,000+ subscribers. We deliver 50,000+ live channels, 4K streaming, and 99.9% uptime. Learn our mission and why UK families choose us.",
-  alternates: { canonical: "https://iptv-british.com/about" },
+    "Discover Multivision IPTV: trusted by 25,000+ subscribers. We deliver 50,000+ live channels, 4K streaming, and 99.9% uptime. Learn our mission and why UK families choose us.",
+  alternates: { canonical: "https://multivision-iptv.com/about" },
   openGraph: {
-    title: "About British IPTV — Premium UK IPTV Service",
+    title: "About Multivision IPTV — Premium UK IPTV Service",
     description: "25,000+ subscribers trust us for 50,000+ live channels, 4K streaming, and exceptional support.",
-    url: "https://iptv-british.com/about",
+    url: "https://multivision-iptv.com/about",
   },
 };
 
@@ -28,10 +28,10 @@ const stats = [
 const aboutSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  name: "About British IPTV",
-  url: "https://iptv-british.com/about",
+  name: "About Multivision IPTV",
+  url: "https://multivision-iptv.com/about",
   description:
-    "British IPTV is a premium IPTV provider offering 50,000+ live channels in 4K quality.",
+    "Multivision IPTV is a premium IPTV provider offering 50,000+ live channels in 4K quality.",
 };
 
 export default function AboutPage() {
@@ -50,10 +50,10 @@ export default function AboutPage() {
           </Link>
           <p className="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-3">About Us</p>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Britain&apos;s most trusted IPTV provider
+            The most trusted Multivision IPTV provider
           </h1>
           <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl">
-            We started British IPTV to give UK viewers a better, more affordable alternative to expensive satellite TV — and we&apos;ve been growing ever since.
+            We started Multivision IPTV to give UK viewers a better, more affordable alternative to expensive satellite TV — and we&apos;ve been growing ever since.
           </p>
         </div>
       </div>
@@ -74,7 +74,7 @@ export default function AboutPage() {
         <div className="space-y-6">
           <h2 className="text-2xl font-bold text-white">Our Story</h2>
           <p className="text-zinc-300 leading-8">
-            British IPTV was founded with a simple mission: make great TV accessible and affordable for everyone. We watched as satellite TV prices climbed year after year while the value offered to viewers stayed flat. Long contracts, expensive hardware, and a limited channel selection — that wasn&apos;t good enough.
+            Multivision IPTV was founded with a simple mission: make great TV accessible and affordable for everyone. We watched as satellite TV prices climbed year after year while the value offered to viewers stayed flat. Long contracts, expensive hardware, and a limited channel selection — that wasn&apos;t good enough.
           </p>
           <p className="text-zinc-300 leading-8">
             We built a service from the ground up with a focus on reliability, picture quality, and value. Starting with a small base of UK viewers, we&apos;ve grown to serve over 25,000 active subscribers across the UK and worldwide.
@@ -118,7 +118,7 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/212707711512?text=iptv-british.com%20-%20Free%203-Hour%20Trial"
+              href="https://wa.me/212710141872?text=multivision-iptv.com%20-%20Free%203-Hour%20Trial"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-amber-500 hover:bg-amber-400 text-white font-semibold px-8 py-3.5 rounded-full text-sm transition-colors"
