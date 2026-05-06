@@ -3,11 +3,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeft, Clock, Tag, ArrowRight } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getAllPosts, getPostBySlug } from "../../lib/mdx";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
 import JsonLd from "../../components/JsonLd";
+
+export const dynamicParams = true;
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -51,6 +54,9 @@ function formatDate(iso: string) {
 }
 
 const mdxComponents = {
+  img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
+    <img className="w-full rounded-2xl my-8 object-cover max-h-96" {...props} />
+  ),
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2 className="text-xl font-bold text-white mt-10 mb-3" {...props} />
   ),
@@ -81,6 +87,38 @@ const mdxComponents = {
   hr: () => <hr className="border-white/10 my-8" />,
   code: (props: React.HTMLAttributes<HTMLElement>) => (
     <code className="bg-[#1a1a1a] text-amber-400 text-sm px-1.5 py-0.5 rounded font-mono" {...props} />
+  ),
+  table: (props: React.HTMLAttributes<HTMLTableElement>) => (
+    <div className="overflow-x-auto my-8 rounded-xl border border-white/10">
+      <table className="w-full text-sm border-collapse" {...props} />
+    </div>
+  ),
+  thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <thead className="bg-white/5" {...props} />
+  ),
+  tbody: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <tbody {...props} />
+  ),
+  tr: (props: React.HTMLAttributes<HTMLTableRowElement>) => (
+    <tr className="border-b border-white/5 hover:bg-white/5 transition-colors" {...props} />
+  ),
+  th: (props: React.ThHTMLAttributes<HTMLTableCellElement>) => (
+    <th className="text-left py-3 px-4 text-amber-400 font-semibold text-sm whitespace-nowrap" {...props} />
+  ),
+  td: (props: React.TdHTMLAttributes<HTMLTableCellElement>) => (
+    <td className="py-3 px-4 text-zinc-300 text-sm" {...props} />
+  ),
+  CTA: ({ href, children }: { href: string; children: React.ReactNode }) => (
+    <div className="my-8 bg-gradient-to-br from-amber-950/40 to-zinc-900 border border-amber-900/30 rounded-2xl p-6 text-center">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block bg-amber-500 hover:bg-amber-400 text-white font-semibold px-8 py-3 rounded-full text-sm transition-colors"
+      >
+        {children}
+      </a>
+    </div>
   ),
 };
 
@@ -178,9 +216,20 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </div>
 
+      {/* Cover image */}
+      {post.coverImage && (
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+          <img
+            src={post.coverImage}
+            alt={post.coverAlt ?? post.title}
+            className="w-full rounded-2xl object-cover max-h-96"
+          />
+        </div>
+      )}
+
       {/* Article body */}
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <MDXRemote source={post.content} components={mdxComponents} />
+        <MDXRemote source={post.content} components={mdxComponents} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
 
         {/* CTA box */}
         <div className="mt-14 bg-gradient-to-br from-amber-950/40 to-zinc-900 border border-amber-900/30 rounded-2xl p-8 text-center">
