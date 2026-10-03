@@ -1,0 +1,42 @@
+# Multivision IPTV
+
+> Multivision IPTV is an IPTV subscription service for viewers in the USA. It streams 50,000+ live TV channels and 200,000+ movies and series on demand, in up to 4K, to devices people already own — with no cable box and no contract.
+
+## Key facts
+
+- Service: IPTV (internet protocol television) subscription
+- Market: United States (works worldwide)
+- Live channels: 50,000+ (US entertainment, sports, news, kids, international)
+- On demand: 200,000+ movies and series
+- Quality: up to 4K Ultra HD
+- Catch-up TV: 7 days on supported channels
+- Simultaneous screens: 1 to 4
+- Devices: Amazon Firestick / Fire TV, Android TV boxes, Smart TVs (Samsung, LG, Sony), iPhone and iPad, Android phones, Windows, macOS, MAG boxes
+- Compatible apps: TiviMate, IPTV Smarters Pro, GSE IPTV, Perfect Player and any M3U / Xtream Codes player
+- Recommended internet speed: 10 Mbps for HD, 25 Mbps for 4K
+- Free trial: 3 hours, no credit card
+- Support: 24/7 via WhatsApp (+212 710-141872) and email (multivisonsupport@gmail.com)
+
+## Pricing (USD, one device, one-time payment, no auto-renewal)
+
+- 1 month: $19.99
+- 3 months: $39.99 ($13.33/month)
+- 6 months: $55.99 ($9.33/month)
+- 12 months: $79.99 ($6.67/month)
+- 24 months: $129.99 ($5.42/month)
+
+## Pages
+
+- [Home — IPTV USA](https://multivision-iptv.com/): overview, pricing, devices, FAQ
+- [Plans & pricing](https://multivision-iptv.com/product): compare all subscription lengths
+- [Setup guide](https://multivision-iptv.com/setup): step-by-step setup for Firestick, Smart TV, Android and iPhone
+- [Blog](https://multivision-iptv.com/blog): IPTV guides and troubleshooting
+- [About](https://multivision-iptv.com/about)
+- [Contact](https://multivision-iptv.com/contact)
+
+## Policies
+
+- [Refund policy](https://multivision-iptv.com/refund-policy)
+- [Terms of service](https://multivision-iptv.com/terms-of-service)
+- [Privacy policy](https://multivision-iptv.com/privacy-policy)
+- [DMCA & copyright policy](https://multivision-iptv.com/dmca)

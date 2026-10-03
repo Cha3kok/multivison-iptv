@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
+import Link from "next/link";
 
 const OFFER_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours
 const STORAGE_KEY = "iptv_offer_end";
@@ -56,15 +57,15 @@ export default function OfferBanner() {
   if (!mounted || dismissed) return null;
 
   return (
-    <div className="fixed top-0 inset-x-0 z-[60] bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-black">
+    <div className="fixed top-0 inset-x-0 z-[60] bg-[linear-gradient(90deg,#6d28d9,#c026d3,#7c3aed,#6d28d9)] bg-[length:300%_100%] animate-[gradient-pan_8s_ease_infinite] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-center gap-3 flex-wrap text-center">
         {/* Badge */}
-        <span className="bg-black text-amber-400 text-[11px] font-black px-2.5 py-1 rounded-full tracking-widest uppercase">
+        <span className="bg-black/30 text-white text-[11px] font-black px-2.5 py-1 rounded-full tracking-widest uppercase">
           Limited Offer
         </span>
 
         <p className="text-sm font-bold">
-          🔥 <span className="text-black">-20% OFF</span> all plans — offer ends in:
+          🔥 <span className="text-yellow-300">-20% OFF</span> all plans — offer ends in:
         </p>
 
         {/* Countdown */}
@@ -75,8 +76,8 @@ export default function OfferBanner() {
             { value: timeLeft.s, label: "S" },
           ].map(({ value, label }, i) => (
             <span key={label} className="flex items-center gap-1">
-              {i > 0 && <span className="font-black text-black/60 -mt-0.5">:</span>}
-              <span className="bg-black/20 rounded px-1.5 py-0.5 text-sm font-black tabular-nums min-w-[2rem] text-center">
+              {i > 0 && <span className="font-black text-white/60 -mt-0.5">:</span>}
+              <span className="bg-black/25 rounded px-1.5 py-0.5 text-sm font-black tabular-nums min-w-[2rem] text-center">
                 {pad(value)}
                 <span className="text-[9px] font-bold block leading-none opacity-70">{label}</span>
               </span>
@@ -84,16 +85,16 @@ export default function OfferBanner() {
           ))}
         </div>
 
-        <a
-          href="#pricing"
-          className="bg-black text-amber-400 hover:bg-black/80 text-xs font-bold px-4 py-1.5 rounded-full transition-colors whitespace-nowrap"
+        <Link
+          href="/#pricing"
+          className="bg-white text-brand-700 hover:bg-white/90 text-xs font-bold px-4 py-1.5 rounded-full transition-colors whitespace-nowrap"
         >
           Claim Now
-        </a>
+        </Link>
 
         <button
           onClick={dismiss}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-black/60 hover:text-black transition-colors"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors"
           aria-label="Dismiss"
         >
           <X size={15} />

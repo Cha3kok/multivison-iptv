@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { Check, Zap, Shield, Star, Rocket, Crown } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./motion/Reveal";
 
 type DeviceCount = 1 | 2 | 3 | 4;
 
@@ -102,117 +104,126 @@ const plans = [
 
 export default function Pricing() {
   const [devices, setDevices] = useState<DeviceCount>(1);
+  const selected = deviceOptions.indexOf(devices);
 
   return (
-    <section id="pricing" className="bg-[#0d0d0d] py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pricing" className="relative bg-ink py-28 overflow-hidden">
+      <div aria-hidden className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-500/15 blur-[140px] rounded-full" />
+      <div aria-hidden className="absolute inset-0 bg-grid opacity-60" />
 
-        {/* Header */}
-        <div className="text-center mb-10">
-          <p className="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-3">
-            Pricing
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Simple, honest pricing
-          </h2>
-          <p className="text-zinc-400 text-lg max-w-xl mx-auto">
-            No hidden fees. No contracts. Cancel anytime. Free 3-hour trial available.
-          </p>
-        </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="Pricing"
+          title={<>Simple, <span className="text-gradient">honest</span> pricing</>}
+          subtitle="No hidden fees. No contracts. Cancel anytime. Free 3-hour trial available."
+        />
 
-        {/* Device selector */}
-        <div className="flex flex-col items-center mb-12">
+        {/* Device selector with sliding pill */}
+        <Reveal className="flex flex-col items-center mb-14">
           <p className="text-zinc-400 text-sm mb-4">How many devices do you need?</p>
-          <div className="inline-flex bg-[#1a1a1a] border border-white/10 rounded-full p-1 gap-1">
+          <div className="relative grid grid-cols-4 bg-surface border border-white/10 rounded-full p-1">
+            <span
+              aria-hidden
+              className="absolute top-1 bottom-1 left-1 w-[calc((100%-0.5rem)/4)] rounded-full bg-brand-gradient shadow-lg shadow-brand-500/40 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style={{ transform: `translateX(${selected * 100}%)` }}
+            />
             {deviceOptions.map((d) => (
               <button
                 key={d}
                 onClick={() => setDevices(d)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
-                  devices === d
-                    ? "bg-amber-500 text-white shadow"
-                    : "text-zinc-400 hover:text-white"
+                aria-pressed={devices === d}
+                className={`relative z-10 px-3 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-colors ${
+                  devices === d ? "text-white" : "text-zinc-400 hover:text-white"
                 }`}
               >
                 {d} {d === 1 ? "Device" : "Devices"}
               </button>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/* Plans grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
-          {plans.map((plan) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-stretch">
+          {plans.map((plan, i) => {
             const price = plan.prices[devices];
             const period = plan.period[devices];
             const Icon = plan.icon;
 
             return (
-              <div
-                key={plan.id}
-                className={`relative flex flex-col rounded-2xl border transition-all ${
-                  plan.highlight
-                    ? "bg-[#111111] border-amber-500/60 shadow-[0_0_40px_rgba(245,158,11,0.15)] pb-8 pt-10 px-6 lg:-mt-4"
-                    : "bg-[#111111] border-white/10 hover:border-amber-500/30 p-6"
-                }`}
-              >
-                {/* Badge */}
-                {plan.badge && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-black text-[11px] font-bold px-4 py-1.5 rounded-full tracking-wider whitespace-nowrap">
-                    {plan.badge}
-                  </div>
-                )}
-
-                {/* Icon */}
-                <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-4 ${
-                  plan.highlight ? "bg-amber-500/20" : "bg-white/5"
-                }`}>
-                  <Icon size={18} className="text-amber-400" />
-                </div>
-
-                {/* Plan name & subtitle */}
-                <p className="text-white font-bold text-base leading-tight mb-1">{plan.name}</p>
-                <p className="text-zinc-500 text-xs mb-5 leading-snug">{plan.subtitle}</p>
-
-                {/* Price */}
-                <div className="mb-5">
-                  <span className="text-white text-3xl font-bold">${price.toFixed(2)}</span>
-                  <span className="text-zinc-500 text-sm ml-1">{period}</span>
-                </div>
-
-                {/* Features */}
-                <ul className="space-y-2.5 mb-7 flex-1">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-zinc-300">
-                      <Check size={14} className="text-amber-400 flex-shrink-0 mt-0.5" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA */}
-                <a
-                  href={`https://wa.me/212710141872?text=${encodeURIComponent(
-                    `multivision-iptv.com - ${plan.name} / ${devices} ${devices === 1 ? "Device" : "Devices"} - $${price.toFixed(2)}`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`block text-center font-semibold py-2.5 rounded-full text-sm transition-colors ${
+              <Reveal key={plan.id} delay={i * 80} className={plan.highlight ? "lg:-my-4 relative z-10" : ""}>
+                <div
+                  className={`group relative flex flex-col h-full rounded-2xl transition-all duration-500 hover:-translate-y-1.5 ${
                     plan.highlight
-                      ? "bg-amber-500 hover:bg-amber-400 text-white"
-                      : "bg-white/10 hover:bg-amber-500 hover:text-white text-zinc-300"
+                      ? "border-animated pb-8 pt-10 px-6 shadow-[0_0_60px_-10px_rgba(124,58,237,0.6)]"
+                      : "bg-surface/80 border border-white/10 hover:border-brand-500/40 p-6 hover:shadow-[0_20px_50px_-20px_rgba(124,58,237,0.5)]"
                   }`}
                 >
-                  Get Started
-                </a>
-              </div>
+                  {plan.badge && (
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-gradient text-white text-[11px] font-bold px-4 py-1.5 rounded-full tracking-wider whitespace-nowrap shadow-lg shadow-brand-500/40">
+                      ★ {plan.badge}
+                    </div>
+                  )}
+
+                  <div
+                    className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[-6deg] ${
+                      plan.highlight ? "bg-brand-gradient" : "bg-white/5 border border-white/10"
+                    }`}
+                  >
+                    <Icon size={18} className={plan.highlight ? "text-white" : "text-brand-400"} />
+                  </div>
+
+                  <p className="text-white font-bold text-base leading-tight mb-1">{plan.name}</p>
+                  <p className="text-zinc-500 text-xs mb-5 leading-snug">{plan.subtitle}</p>
+
+                  <div className="mb-6 overflow-hidden">
+                    <span
+                      key={`${plan.id}-${devices}`}
+                      className={`fade-up inline-block text-4xl font-bold tracking-tight ${plan.highlight ? "text-gradient" : "text-white"}`}
+                    >
+                      ${price.toFixed(2)}
+                    </span>
+                    <span className="text-zinc-500 text-sm ml-1">{period}</span>
+                  </div>
+
+                  <ul className="space-y-2.5 mb-7 flex-1">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-zinc-300">
+                        <span className="mt-0.5 w-4 h-4 rounded-full bg-brand-500/20 flex items-center justify-center flex-shrink-0">
+                          <Check size={10} className="text-brand-300" strokeWidth={3} />
+                        </span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href={`https://wa.me/212710141872?text=${encodeURIComponent(
+                      `multivision-iptv.com - ${plan.name} / ${devices} ${devices === 1 ? "Device" : "Devices"} - $${price.toFixed(2)}`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`relative overflow-hidden block text-center font-semibold py-3 rounded-full text-sm transition-all ${
+                      plan.highlight
+                        ? "bg-brand-gradient text-white shadow-lg shadow-brand-500/40 hover:shadow-brand-500/70"
+                        : "bg-white/[0.06] border border-white/10 text-zinc-200 hover:bg-brand-500 hover:border-brand-500 hover:text-white"
+                    }`}
+                  >
+                    {plan.highlight && (
+                      <span className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
+                    )}
+                    <span className="relative">Get Started</span>
+                  </a>
+                </div>
+              </Reveal>
             );
           })}
         </div>
 
-        <p className="text-center text-zinc-600 text-sm mt-10">
-          All plans include a free 3-hour trial. Contact us on WhatsApp — no credit card required.
-        </p>
+        <Reveal>
+          <p className="text-center text-zinc-500 text-sm mt-12">
+            All plans include a free 3-hour trial. Contact us on WhatsApp — no credit card required.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

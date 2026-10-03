@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalPage from "../components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Multivision IPTV | IPTV Subscription Terms",
+  title: "Terms of Service",
   description: "Read Multivision IPTV's terms and conditions. Understand your rights, responsibilities, and acceptable use policy for our IPTV streaming service.",
   alternates: { canonical: "https://multivision-iptv.com/terms-of-service" },
   openGraph: {
@@ -48,7 +48,7 @@ export default function TermsOfService() {
         },
         {
           heading: "6. Account Security",
-          body: "You are responsible for maintaining the confidentiality of your account credentials. Notify us immediately if you suspect unauthorised use of your account. We are not liable for losses resulting from unauthorised account access.",
+          body: "You are responsible for maintaining the confidentiality of your account credentials. Notify us immediately if you suspect unauthorized use of your account. We are not liable for losses resulting from unauthorized account access.",
         },
         {
           heading: "7. Intellectual Property",

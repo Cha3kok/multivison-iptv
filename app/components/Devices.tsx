@@ -1,3 +1,7 @@
+import SectionHeading from "./SectionHeading";
+import Reveal from "./motion/Reveal";
+import Spotlight from "./motion/Spotlight";
+
 const devices = [
   {
     name: "Amazon Firestick",
@@ -110,40 +114,39 @@ const devices = [
 
 export default function Devices() {
   return (
-    <section id="devices" className="bg-[#0a0a0a] py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <p className="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-3">
-            Compatibility
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Works on every device you own
-          </h2>
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            One subscription, unlimited devices. Set up in minutes on any platform.
-          </p>
-        </div>
+    <section id="devices" className="relative bg-night py-28 overflow-hidden">
+      <div aria-hidden className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div aria-hidden className="absolute -right-40 top-1/3 w-[500px] h-[500px] bg-live/10 blur-[120px] rounded-full" />
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
-          {devices.map((device) => (
-            <div
-              key={device.name}
-              className="group bg-[#111111] hover:bg-[#1a1a1a] border border-white/5 hover:border-amber-500/30 rounded-2xl p-6 flex flex-col items-center text-center gap-3 transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-[#1a1a1a] group-hover:bg-[#222222] rounded-2xl flex items-center justify-center transition-colors">
-                {device.svg}
-              </div>
-              <div>
-                <p className="text-white font-semibold text-sm">{device.name}</p>
-                <p className="text-zinc-500 text-xs mt-0.5">{device.desc}</p>
-              </div>
-            </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="Compatibility"
+          title={<>Works on <span className="text-gradient">every device</span> you own</>}
+          subtitle="One subscription, unlimited devices. Set up in minutes on any platform."
+        />
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {devices.map((device, i) => (
+            <Reveal key={device.name} delay={(i % 4) * 80}>
+              <Spotlight className="group h-full rounded-2xl border border-white/[0.07] hover:border-brand-500/40 bg-surface/70 p-6 flex flex-col items-center text-center gap-4 transition-all duration-500 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-surface-2 border border-white/5 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-[0_12px_30px_-8px_rgba(124,58,237,0.6)]">
+                  {device.svg}
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-sm">{device.name}</p>
+                  <p className="text-zinc-500 text-xs mt-0.5">{device.desc}</p>
+                </div>
+              </Spotlight>
+            </Reveal>
           ))}
         </div>
 
-        <p className="text-center text-zinc-500 text-sm mt-10">
-          Compatible with TiviMate, IPTV Smarters Pro, GSE IPTV, Perfect Player, and all standard M3U players.
-        </p>
+        <Reveal>
+          <p className="text-center text-zinc-500 text-sm mt-12">
+            Compatible with <span className="text-zinc-300">TiviMate</span>, <span className="text-zinc-300">IPTV Smarters Pro</span>,{" "}
+            <span className="text-zinc-300">GSE IPTV</span>, <span className="text-zinc-300">Perfect Player</span>, and all standard M3U players.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

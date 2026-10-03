@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import IptvUsaGuide from "./components/IptvUsaGuide";
 import Features from "./components/Features";
 import Devices from "./components/Devices";
 import Setup from "./components/Setup";
@@ -13,120 +15,101 @@ import StickyBar from "./components/StickyBar";
 import JsonLd from "./components/JsonLd";
 import OfferBanner from "./components/OfferBanner";
 import SocialProof from "./components/SocialProof";
+import { products } from "./lib/products";
+import { homeFaqs } from "./lib/faqs";
+
+const BASE_URL = "https://multivision-iptv.com";
+
+export const metadata: Metadata = {
+  alternates: { canonical: BASE_URL },
+};
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${BASE_URL}/#organization`,
   name: "Multivision IPTV",
-  url: "https://multivision-iptv.com",
-  logo: "https://multivision-iptv.com/logo.png",
+  url: BASE_URL,
+  logo: `${BASE_URL}/logo.png`,
+  description:
+    "Multivision IPTV is an IPTV subscription service for the USA, streaming 50,000+ live channels and 200,000+ movies and series to any device.",
+  areaServed: { "@type": "Country", name: "United States" },
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer support",
     email: "multivisonsupport@gmail.com",
+    telephone: "+212710141872",
     availableLanguage: "English",
+    hoursAvailable: "Mo-Su 00:00-23:59",
   },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${BASE_URL}/#website`,
+  name: "Multivision IPTV",
+  url: BASE_URL,
+  inLanguage: "en-US",
+  publisher: { "@id": `${BASE_URL}/#organization` },
 };
 
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: "Multivision IPTV Subscription",
+  name: "Multivision IPTV USA Subscription",
   description:
-    "Stream 50,000+ live UK and international channels in 4K Ultra HD. No buffering, 7-day catch-up, works on any device.",
+    "IPTV subscription for the USA with 50,000+ live channels, 200,000+ movies and series on demand, up to 4K quality, 7-day catch-up and 24/7 support. No contract.",
+  image: `${BASE_URL}/og-image.png`,
   brand: { "@type": "Brand", name: "Multivision IPTV" },
   offers: {
     "@type": "AggregateOffer",
-    priceCurrency: "GBP",
-    offers: [
-      { "@type": "Offer", name: "1 Month Plan", price: "15", availability: "https://schema.org/InStock" },
-      { "@type": "Offer", name: "3 Month Plan", price: "35", availability: "https://schema.org/InStock" },
-      { "@type": "Offer", name: "6 Month Plan", price: "45", availability: "https://schema.org/InStock" },
-      { "@type": "Offer", name: "12 Month Plan", price: "60", availability: "https://schema.org/InStock" },
-      { "@type": "Offer", name: "24 Month Plan", price: "110", availability: "https://schema.org/InStock" },
-    ],
+    priceCurrency: "USD",
+    lowPrice: Math.min(...products.map((p) => p.price)).toFixed(2),
+    highPrice: Math.max(...products.map((p) => p.price)).toFixed(2),
+    offerCount: products.length,
+    offers: products.map((p) => ({
+      "@type": "Offer",
+      name: p.name,
+      price: p.price.toFixed(2),
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: `${BASE_URL}/product/${p.slug}`,
+      areaServed: { "@type": "Country", name: "United States" },
+    })),
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.6",
-    reviewCount: "89",
-    bestRating: "5",
-  },
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://multivision-iptv.com",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Pricing",
-      item: "https://multivision-iptv.com#pricing",
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Setup",
-      item: "https://multivision-iptv.com#setup",
-    },
-  ],
 };
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What devices does Multivision IPTV work on?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our service works on Smart TVs, Amazon Firestick, Android TV boxes, Android phones, iPhones, iPads, MAG boxes, and any IPTV player.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do you offer a free trial?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, we offer a free 3-hour trial. No credit card required.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I watch UK channels from abroad?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Our service works worldwide. You can watch all UK channels no matter where you are — no VPN required.",
-      },
-    },
-  ],
+  mainEntity: homeFaqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 export default function Home() {
   return (
     <>
       <JsonLd data={organizationSchema} />
+      <JsonLd data={websiteSchema} />
       <JsonLd data={productSchema} />
-      <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
       <OfferBanner />
       <Navbar />
-      <Hero />
-      <Features />
-      <Pricing />
-      <Devices />
-      <Setup />
-      <Channels />
-      <Testimonials />
-      <FAQ />
+      <main>
+        <Hero />
+        <IptvUsaGuide />
+        <Features />
+        <Pricing />
+        <Devices />
+        <Setup />
+        <Channels />
+        <Testimonials />
+        <FAQ />
+      </main>
       <Footer />
       <WhatsAppButton />
       <StickyBar />

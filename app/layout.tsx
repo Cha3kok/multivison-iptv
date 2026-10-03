@@ -18,51 +18,44 @@ const BASE_URL = "https://multivision-iptv.com";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Multivision IPTV — 50,000+ Channels in 4K",
+    default: "IPTV USA — 50,000+ Live Channels in 4K | Multivision IPTV",
     template: "%s — Multivision IPTV",
   },
   description:
-    "Stream 50,000+ live UK and international channels in 4K Ultra HD. No buffering, 7-day catch-up, works on any device. Free 3-hour trial.",
+    "IPTV USA from $5.42/month: 50,000+ live channels, sports and 4K movies on any device. No cable box, no contract. Try Multivision IPTV free for 3 hours.",
   keywords: [
-    "Multivision IPTV",
-    "UK IPTV",
-    "IPTV service UK",
-    "watch UK channels online",
-    "best IPTV 2025",
-    "Firestick IPTV",
-    "Sky Sports IPTV",
+    "IPTV USA",
+    "IPTV service USA",
+    "best IPTV USA",
+    "IPTV subscription USA",
+    "US IPTV provider",
+    "IPTV for Firestick",
+    "cable TV alternative",
     "4K IPTV",
+    "Multivision IPTV",
   ],
   authors: [{ name: "Multivision IPTV" }],
   creator: "Multivision IPTV",
   icons: {
     icon: "/favicon.svg",
-    apple: "/favicon.svg",
+    apple: "/logo.png",
   },
   openGraph: {
     type: "website",
-    locale: "en_GB",
+    locale: "en_US",
     url: BASE_URL,
     siteName: "Multivision IPTV",
-    title: "Multivision IPTV — 50,000+ Channels in 4K",
+    title: "IPTV USA — 50,000+ Live Channels in 4K | Multivision IPTV",
     description:
-      "Stream 50,000+ live UK and international channels in 4K Ultra HD. No buffering, 7-day catch-up, works on any device. Free 3-hour trial.",
-    images: [
-      {
-        url: "/og-image.svg",
-        width: 1200,
-        height: 630,
-        alt: "Multivision IPTV — Stream 50,000+ Channels in 4K",
-      },
-    ],
+      "Live TV, sports and 4K movies on any device, from $5.42/month. No cable, no contract. Free 3-hour trial.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "IPTV USA — live TV without the cable bill, from $5.42/month" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Multivision IPTV — 50,000+ Channels in 4K",
+    title: "IPTV USA — 50,000+ Live Channels in 4K | Multivision IPTV",
     description:
-      "Stream 50,000+ live UK and international channels in 4K Ultra HD. Free 3-hour trial.",
-    images: ["/og-image.svg"],
-    creator: "@iptvbritish",
+      "Live TV, sports and 4K movies on any device, from $5.42/month. No cable, no contract. Free 3-hour trial.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -75,9 +68,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: BASE_URL,
-  },
 };
 
 export default function RootLayout({
@@ -87,7 +77,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-US"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col">

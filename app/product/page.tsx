@@ -8,14 +8,14 @@ import WhatsAppButton from "../components/WhatsAppButton";
 import { products } from "../lib/products";
 
 export const metadata: Metadata = {
-  title: "Multivision IPTV Plans & Pricing — From £15 | Multivision IPTV",
+  title: "IPTV USA Plans & Pricing — From $5.42/Month",
   description:
-    "Compare all Multivision IPTV subscription plans from £15. 50,000+ channels, 4K Ultra HD, 7-day catch-up. Choose 1, 3, 6, 12, or 24 months. No contract. Instant activation.",
+    "Compare IPTV USA subscription plans from $19.99, or as little as $5.42/month. 50,000+ channels, 4K Ultra HD, 7-day catch-up. Choose 1, 3, 6, 12, or 24 months. No contract. Instant activation.",
   alternates: { canonical: "https://multivision-iptv.com/product" },
   openGraph: {
-    title: "Multivision IPTV Plans & Pricing — From £15 | Multivision IPTV",
+    title: "IPTV USA Plans & Pricing — From $5.42/Month",
     description:
-      "50,000+ channels, 4K streaming, 7-day catch-up. Plans from £15. Compare 1, 3, 6, 12 and 24-month Multivision IPTV subscriptions.",
+      "50,000+ channels, 4K streaming, 7-day catch-up. Plans from $19.99. Compare 1, 3, 6, 12 and 24-month Multivision IPTV subscriptions.",
     url: "https://multivision-iptv.com/product",
   },
 };
@@ -26,22 +26,16 @@ const catalogSchema = {
   name: "Multivision IPTV Subscription",
   description:
     "Premium Multivision IPTV subscription with 50,000+ live channels, 200,000+ VODs, 4K Ultra HD quality, 7-day catch-up TV, and 24/7 support.",
-  image: "https://multivision-iptv.com/og-image.svg",
+  image: "https://multivision-iptv.com/og-image.png",
   brand: { "@type": "Brand", name: "Multivision IPTV" },
   offers: products.map((p) => ({
     "@type": "Offer",
     name: p.name,
-    price: p.price.toString(),
-    priceCurrency: "GBP",
+    price: p.price.toFixed(2),
+    priceCurrency: "USD",
     availability: "https://schema.org/InStock",
     url: `https://multivision-iptv.com/product/${p.slug}`,
   })),
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.6",
-    reviewCount: "89",
-    bestRating: "5",
-  },
 };
 
 const breadcrumbSchema = {
@@ -67,7 +61,7 @@ const trustPoints = [
     icon: "📡",
     title: "50,000+ Live Channels",
     description:
-      "UK, US, sports, news, kids, and international channels — all in one subscription. BBC, ITV, Sky Sports, TNT Sports and thousands more.",
+      "US entertainment, sports, news, kids and international channels — all in one subscription, plus 200,000+ movies and series on demand.",
   },
   {
     icon: "⚡",
@@ -85,16 +79,16 @@ const trustPoints = [
     icon: "🌍",
     title: "Works Everywhere",
     description:
-      "Use your subscription anywhere in the world. Perfect for UK expats abroad or anyone travelling. No VPN required.",
+      "Use your subscription anywhere in the world. Perfect for Americans traveling or living abroad. No VPN required.",
   },
 ];
 
 const monthlyEquivalents: Record<string, string> = {
-  "1-month-multivision-iptv": "£15.00/mo",
-  "3-month-multivision-iptv": "£11.67/mo",
-  "6-month-multivision-iptv": "£7.50/mo",
-  "12-month-multivision-iptv": "£5.00/mo",
-  "24-month-multivision-iptv": "£4.58/mo",
+  "1-month-multivision-iptv": "$19.99/mo",
+  "3-month-multivision-iptv": "$13.33/mo",
+  "6-month-multivision-iptv": "$9.33/mo",
+  "12-month-multivision-iptv": "$6.67/mo",
+  "24-month-multivision-iptv": "$5.42/mo",
 };
 
 const devicesBySlug: Record<string, string> = {
@@ -112,7 +106,7 @@ export default function ProductCatalogPage() {
       <JsonLd data={breadcrumbSchema} />
       <Navbar />
 
-      <main className="bg-[#0a0a0a] pt-[100px]">
+      <main className="bg-night pt-[100px]">
 
         {/* Breadcrumb */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
@@ -125,7 +119,7 @@ export default function ProductCatalogPage() {
 
         {/* Hero */}
         <section className="py-16 text-center px-4">
-          <p className="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">
+          <p className="text-brand-400 text-sm font-semibold uppercase tracking-widest mb-4">
             Pricing Plans
           </p>
           <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 leading-tight">
@@ -154,8 +148,8 @@ export default function ProductCatalogPage() {
                     key={product.slug}
                     className={`relative rounded-2xl border p-7 flex flex-col transition-all duration-300 ${
                       product.highlight
-                        ? "bg-gradient-to-br from-amber-500 to-amber-600 border-amber-400 shadow-lg shadow-amber-500/20"
-                        : "bg-[#111111] border-white/5 hover:border-amber-500/30"
+                        ? "bg-gradient-to-br from-brand-500 to-brand-600 border-brand-400 shadow-lg shadow-brand-500/20"
+                        : "bg-surface border-white/5 hover:border-brand-500/30"
                     }`}
                   >
                     {/* Badge */}
@@ -163,8 +157,8 @@ export default function ProductCatalogPage() {
                       <span
                         className={`absolute -top-3 left-1/2 -translate-x-1/2 text-[11px] font-bold px-3 py-0.5 rounded-full whitespace-nowrap ${
                           product.highlight
-                            ? "bg-white text-amber-600"
-                            : "bg-amber-500 text-white"
+                            ? "bg-white text-brand-600"
+                            : "bg-brand-500 text-white"
                         }`}
                       >
                         {product.badge}
@@ -186,11 +180,11 @@ export default function ProductCatalogPage() {
                             product.highlight ? "text-white" : "text-white"
                           }`}
                         >
-                          £{product.price}
+                          ${product.price}
                         </span>
                         <span
                           className={`text-sm ${
-                            product.highlight ? "text-amber-100" : "text-zinc-400"
+                            product.highlight ? "text-brand-100" : "text-zinc-400"
                           }`}
                         >
                           {product.period}
@@ -198,7 +192,7 @@ export default function ProductCatalogPage() {
                       </div>
                       <p
                         className={`text-xs mt-1 font-medium ${
-                          product.highlight ? "text-amber-100" : "text-amber-400"
+                          product.highlight ? "text-brand-100" : "text-brand-400"
                         }`}
                       >
                         {monthlyEquivalents[product.slug]}
@@ -213,16 +207,16 @@ export default function ProductCatalogPage() {
                             className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
                               product.highlight
                                 ? "bg-white/25"
-                                : "bg-amber-500/15"
+                                : "bg-brand-500/15"
                             }`}
                           >
                             <Check
                               size={11}
-                              className={product.highlight ? "text-white" : "text-amber-400"}
+                              className={product.highlight ? "text-white" : "text-brand-400"}
                             />
                           </span>
                           <span
-                            className={product.highlight ? "text-amber-50" : "text-zinc-300"}
+                            className={product.highlight ? "text-brand-50" : "text-zinc-300"}
                           >
                             {feat}
                           </span>
@@ -236,8 +230,8 @@ export default function ProductCatalogPage() {
                         href={`/product/${product.slug}`}
                         className={`text-center text-sm font-semibold px-5 py-2.5 rounded-full transition-colors ${
                           product.highlight
-                            ? "bg-white text-amber-600 hover:bg-amber-50"
-                            : "bg-amber-500 hover:bg-amber-400 text-white"
+                            ? "bg-white text-brand-600 hover:bg-brand-50"
+                            : "bg-brand-500 hover:bg-brand-600 text-white"
                         }`}
                       >
                         View Plan
@@ -249,7 +243,7 @@ export default function ProductCatalogPage() {
                         className={`text-center text-sm font-medium px-5 py-2.5 rounded-full transition-colors ${
                           product.highlight
                             ? "bg-white/20 hover:bg-white/30 text-white border border-white/30"
-                            : "border border-white/10 hover:border-amber-500/40 text-zinc-300 hover:text-white"
+                            : "border border-white/10 hover:border-brand-500/40 text-zinc-300 hover:text-white"
                         }`}
                       >
                         Subscribe Now
@@ -263,10 +257,10 @@ export default function ProductCatalogPage() {
         </section>
 
         {/* Comparison Table */}
-        <section className="py-20 px-4 bg-[#0d0d0d] border-y border-white/5">
+        <section className="py-20 px-4 bg-night border-y border-white/5">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <p className="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-3">
+              <p className="text-brand-400 text-sm font-semibold uppercase tracking-widest mb-3">
                 Compare Plans
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
@@ -284,11 +278,11 @@ export default function ProductCatalogPage() {
                       <th
                         key={p.slug}
                         className={`text-center text-sm font-semibold py-3 px-3 ${
-                          p.highlight ? "text-amber-400" : "text-white"
+                          p.highlight ? "text-brand-400" : "text-white"
                         }`}
                       >
                         {p.badge && (
-                          <span className="block text-[10px] text-amber-400 font-bold uppercase mb-0.5">
+                          <span className="block text-[10px] text-brand-400 font-bold uppercase mb-0.5">
                             {p.badge}
                           </span>
                         )}
@@ -304,10 +298,10 @@ export default function ProductCatalogPage() {
                       <td
                         key={p.slug}
                         className={`text-center text-sm font-bold py-3.5 px-3 ${
-                          p.highlight ? "text-amber-400" : "text-white"
+                          p.highlight ? "text-brand-400" : "text-white"
                         }`}
                       >
-                        £{p.price}
+                        ${p.price}
                       </td>
                     ))}
                   </tr>
@@ -328,7 +322,7 @@ export default function ProductCatalogPage() {
                       <td
                         key={p.slug}
                         className={`text-center text-sm font-semibold py-3.5 px-3 ${
-                          p.highlight ? "text-amber-400" : "text-amber-400/80"
+                          p.highlight ? "text-brand-400" : "text-brand-400/80"
                         }`}
                       >
                         {monthlyEquivalents[p.slug]}
@@ -358,8 +352,8 @@ export default function ProductCatalogPage() {
                       <td className="py-3.5 pr-6 text-zinc-400 text-sm">{feature}</td>
                       {products.map((p) => (
                         <td key={p.slug} className="text-center py-3.5 px-3">
-                          <span className="inline-flex items-center justify-center w-5 h-5 bg-amber-500/15 rounded-full">
-                            <Check size={11} className="text-amber-400" />
+                          <span className="inline-flex items-center justify-center w-5 h-5 bg-brand-500/15 rounded-full">
+                            <Check size={11} className="text-brand-400" />
                           </span>
                         </td>
                       ))}
@@ -375,7 +369,7 @@ export default function ProductCatalogPage() {
         <section className="py-24 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-14">
-              <p className="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-3">
+              <p className="text-brand-400 text-sm font-semibold uppercase tracking-widest mb-3">
                 Why Us
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
@@ -386,7 +380,7 @@ export default function ProductCatalogPage() {
               {trustPoints.map((point) => (
                 <div
                   key={point.title}
-                  className="bg-[#111111] border border-white/5 hover:border-amber-500/20 rounded-2xl p-7 transition-all"
+                  className="bg-surface border border-white/5 hover:border-brand-500/20 rounded-2xl p-7 transition-all"
                 >
                   <div className="text-3xl mb-4">{point.icon}</div>
                   <h3 className="text-white font-semibold text-base mb-2">{point.title}</h3>
@@ -398,9 +392,9 @@ export default function ProductCatalogPage() {
         </section>
 
         {/* Bottom CTA */}
-        <section className="py-20 px-4 bg-gradient-to-b from-[#0d0d0d] to-[#0a0a0a] border-t border-white/5">
+        <section className="py-20 px-4 bg-gradient-to-b from-night to-night border-t border-white/5">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">
+            <p className="text-brand-400 text-sm font-semibold uppercase tracking-widest mb-4">
               Not Sure Yet?
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
@@ -414,13 +408,13 @@ export default function ProductCatalogPage() {
                 href={TRIAL_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-amber-500 hover:bg-amber-400 text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-sm w-full sm:w-auto text-center"
+                className="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-sm w-full sm:w-auto text-center"
               >
                 Start Free 3-Hour Trial
               </a>
               <Link
                 href="/product/6-month-multivision-iptv"
-                className="border border-white/15 hover:border-amber-500/40 text-zinc-300 hover:text-white font-medium px-8 py-3.5 rounded-full transition-colors text-sm w-full sm:w-auto text-center"
+                className="border border-white/15 hover:border-brand-500/40 text-zinc-300 hover:text-white font-medium px-8 py-3.5 rounded-full transition-colors text-sm w-full sm:w-auto text-center"
               >
                 View Most Popular Plan
               </Link>

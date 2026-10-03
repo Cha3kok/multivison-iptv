@@ -1,4 +1,6 @@
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./motion/Reveal";
 
 const reviews = [
   {
@@ -6,8 +8,8 @@ const reviews = [
     location: "Manchester, UK",
     avatar: "JT",
     rating: 5,
-    title: "Finally switched from Sky — best decision ever",
-    body: "Paying £70/month for Sky was painful. I switched to Multivision IPTV and I get more channels, better picture quality, and it costs me less than a tenner a month. Zero buffering in 6 months of use.",
+    title: "Finally ditched satellite TV — best decision ever",
+    body: "Paying £70/month for satellite TV was painful. I switched to Multivision IPTV and I get more channels, better picture quality, and it costs me less than a tenner a month. Zero buffering in 6 months of use.",
     plan: "12-Month Plan",
   },
   {
@@ -16,7 +18,7 @@ const reviews = [
     avatar: "SM",
     rating: 5,
     title: "Setup was dead easy, works great on my Firestick",
-    body: "I was worried it'd be complicated but the setup guide was clear and I was watching within 10 minutes. The sports channels are incredible — got every Sky Sports and BT Sport channel.",
+    body: "I was worried it'd be complicated but the setup guide was clear and I was watching within 10 minutes. The sports channels are incredible — got every sports channel I wanted.",
     plan: "3-Month Plan",
   },
   {
@@ -57,6 +59,8 @@ const reviews = [
   },
 ];
 
+type Review = (typeof reviews)[number];
+
 function Stars({ count }: { count: number }) {
   return (
     <div className="flex gap-0.5">
@@ -71,20 +75,50 @@ function Stars({ count }: { count: number }) {
   );
 }
 
-function Avatar({ initials }: { initials: string }) {
-  const colors: Record<string, string> = {
-    JT: "bg-blue-600",
-    SM: "bg-pink-600",
-    DK: "bg-purple-600",
-    LR: "bg-emerald-600",
-    AH: "bg-orange-600",
-    CW: "bg-teal-600",
-  };
+const avatarColors: Record<string, string> = {
+  JT: "from-blue-500 to-brand-500",
+  SM: "from-pink-500 to-accent",
+  DK: "from-brand-400 to-brand-700",
+  LR: "from-emerald-500 to-live",
+  AH: "from-orange-500 to-pink-500",
+  CW: "from-teal-400 to-blue-600",
+};
+
+function ReviewCard({ r }: { r: Review }) {
   return (
-    <div
-      className={`w-10 h-10 rounded-full ${colors[initials] ?? "bg-amber-500"} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}
-    >
-      {initials}
+    <figure className="group relative w-[320px] sm:w-[380px] flex-shrink-0 rounded-2xl border border-white/[0.07] bg-surface/80 p-6 hover:border-brand-500/40 transition-colors">
+      <Quote aria-hidden size={36} className="absolute top-5 right-5 text-brand-500/15 group-hover:text-brand-500/30 transition-colors" />
+      <div className="flex items-center gap-3 mb-4">
+        <div
+          className={`w-10 h-10 rounded-full bg-gradient-to-br ${avatarColors[r.avatar] ?? "from-brand-500 to-accent"} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}
+        >
+          {r.avatar}
+        </div>
+        <div>
+          <p className="text-white font-semibold text-sm">{r.name}</p>
+          <p className="text-zinc-500 text-xs">{r.location}</p>
+        </div>
+      </div>
+      <Stars count={r.rating} />
+      <h4 className="text-white font-semibold text-sm mt-3 mb-2">{r.title}</h4>
+      <blockquote className="text-zinc-400 text-sm leading-relaxed">{r.body}</blockquote>
+      <span className="inline-block mt-4 bg-brand-500/15 text-brand-300 text-xs px-2.5 py-1 rounded-full font-medium">
+        {r.plan}
+      </span>
+    </figure>
+  );
+}
+
+function ReviewRow({ items, reverse = false }: { items: Review[]; reverse?: boolean }) {
+  return (
+    <div className="mask-fade-x overflow-hidden pause-on-hover">
+      <div className={`flex w-max gap-5 items-start ${reverse ? "animate-marquee-reverse" : "animate-marquee"} [animation-duration:60s]`}>
+        {[...items, ...items].map((r, i) => (
+          <div key={i} aria-hidden={i >= items.length}>
+            <ReviewCard r={r} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -94,53 +128,31 @@ export default function Testimonials() {
   const avgRating = 4.9;
 
   return (
-    <section id="reviews" className="bg-[#0a0a0a] py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-3">
-            Customer Reviews
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            Loved by thousands across the UK
-          </h2>
+    <section id="reviews" className="relative bg-ink py-28 overflow-hidden">
+      <div aria-hidden className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-500/10 blur-[120px] rounded-full" />
 
-          {/* Aggregate rating */}
-          <div className="inline-flex flex-col items-center gap-2 bg-[#111111] border border-white/10 rounded-2xl px-8 py-5">
-            <div className="flex items-end gap-2">
-              <span className="text-5xl font-bold text-white">{avgRating}</span>
-              <span className="text-zinc-400 text-sm mb-2">/ 5.0</span>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="Customer Reviews"
+          title={<>What our <span className="text-gradient">customers</span> say</>}
+        />
+
+        <Reveal className="flex justify-center -mt-6 mb-14">
+          <div className="inline-flex items-center gap-5 bg-surface/80 border border-white/10 rounded-2xl px-8 py-5 backdrop-blur">
+            <span className="text-5xl font-bold text-white tracking-tight">{avgRating}</span>
+            <div className="text-left">
+              <Stars count={5} />
+              <p className="text-zinc-400 text-sm mt-1.5">
+                Based on <span className="text-white font-medium">{totalReviews.toLocaleString()}</span> verified reviews
+              </p>
             </div>
-            <Stars count={5} />
-            <p className="text-zinc-400 text-sm mt-1">
-              Based on <span className="text-white font-medium">{totalReviews.toLocaleString()}</span> verified reviews
-            </p>
           </div>
-        </div>
+        </Reveal>
+      </div>
 
-        {/* Reviews grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
-          {reviews.map((r) => (
-            <div
-              key={r.name}
-              className="break-inside-avoid bg-[#111111] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <Avatar initials={r.avatar} />
-                <div>
-                  <p className="text-white font-semibold text-sm">{r.name}</p>
-                  <p className="text-zinc-500 text-xs">{r.location}</p>
-                </div>
-                <span className="ml-auto bg-amber-500/15 text-amber-400 text-xs px-2.5 py-1 rounded-full font-medium">
-                  {r.plan}
-                </span>
-              </div>
-              <Stars count={r.rating} />
-              <h4 className="text-white font-semibold text-sm mt-3 mb-2">{r.title}</h4>
-              <p className="text-zinc-400 text-sm leading-relaxed">{r.body}</p>
-            </div>
-          ))}
-        </div>
+      <div className="relative flex flex-col gap-5">
+        <ReviewRow items={reviews.slice(0, 3).concat(reviews.slice(0, 3))} />
+        <ReviewRow items={reviews.slice(3).concat(reviews.slice(3))} reverse />
       </div>
     </section>
   );

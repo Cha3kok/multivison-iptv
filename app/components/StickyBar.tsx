@@ -22,7 +22,7 @@ export default function StickyBar() {
   if (dismissed || !visible) return null;
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-40 bg-[#111111]/95 backdrop-blur border-t border-white/10 shadow-2xl">
+    <div className="fixed bottom-0 inset-x-0 z-40 bg-ink/85 backdrop-blur-xl border-t border-white/10 shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3 min-w-0">
           {/* Live dot */}
@@ -40,7 +40,7 @@ export default function StickyBar() {
             href="https://wa.me/212710141872?text=multivision-iptv.com%20-%20Free%203-Hour%20Trial"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-amber-500 hover:bg-amber-400 text-white text-sm font-semibold px-5 py-2 rounded-full transition-colors whitespace-nowrap"
+            className="bg-brand-gradient text-white text-sm font-semibold px-5 py-2 rounded-full shadow-lg shadow-brand-500/40 hover:-translate-y-px transition-all whitespace-nowrap"
           >
             Start Free Trial
           </a>
