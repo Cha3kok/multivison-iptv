@@ -18,12 +18,13 @@ export default function LegalPage({ badge, title, subtitle, lastUpdated, section
   return (
     <div className="min-h-screen bg-ink text-white">
       <Navbar />
+      <main>
 
       <div className="bg-night border-b border-white/5 pt-24 pb-12">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-zinc-500 hover:text-white text-sm mb-6 transition-colors"
+            className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white text-sm mb-6 transition-colors"
           >
             <ChevronLeft size={14} /> Back to Home
           </Link>
@@ -32,7 +33,7 @@ export default function LegalPage({ badge, title, subtitle, lastUpdated, section
           </p>
           <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">{title}</h1>
           <p className="text-zinc-400">{subtitle}</p>
-          <p className="text-zinc-600 text-xs mt-3">Last updated: {lastUpdated}</p>
+          <p className="text-zinc-400 text-xs mt-3">Last updated: {lastUpdated}</p>
         </div>
       </div>
 
@@ -56,14 +57,16 @@ export default function LegalPage({ badge, title, subtitle, lastUpdated, section
         ))}
 
         <div className="pt-6 border-t border-white/5">
-          <p className="text-zinc-500 text-sm">
+          <p className="text-zinc-400 text-sm">
             Questions about this policy? Contact us at{" "}
-            <a href="mailto:multivisonsupport@gmail.com" className="text-brand-400 hover:text-brand-300 transition-colors">
+            <a href="mailto:multivisonsupport@gmail.com" className="text-brand-400 hover:text-brand-300 underline underline-offset-2 transition-colors">
               multivisonsupport@gmail.com
             </a>
           </p>
         </div>
       </article>
+
+      </main>
 
       <Footer />
       <WhatsAppButton />

@@ -26,7 +26,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 inset-x-0 z-50 mt-[42px] transition-all duration-300 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled || open
           ? "bg-ink/80 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.8)]"
           : "bg-transparent border-b border-transparent"
@@ -58,9 +58,6 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <Link href="/#pricing" className="text-sm text-zinc-400 hover:text-white transition-colors">
-            Sign In
-          </Link>
           <Link
             href="/#pricing"
             className="bg-brand-gradient text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-[0_6px_24px_-8px_rgba(124,58,237,0.9)] hover:shadow-[0_6px_28px_-4px_rgba(192,38,211,0.9)] hover:-translate-y-px transition-all"

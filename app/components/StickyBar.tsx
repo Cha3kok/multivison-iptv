@@ -46,7 +46,7 @@ export default function StickyBar() {
           </a>
           <button
             onClick={() => setDismissed(true)}
-            className="text-zinc-500 hover:text-zinc-300 transition-colors p-1"
+            className="text-zinc-400 hover:text-zinc-300 transition-colors p-1"
             aria-label="Dismiss"
           >
             <X size={16} />

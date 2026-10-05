@@ -214,7 +214,7 @@ export default function SetupClient() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-1 text-zinc-500 hover:text-white text-sm mb-6 transition-colors"
+            className="inline-flex items-center gap-1 text-zinc-400 hover:text-white text-sm mb-6 transition-colors"
           >
             <ChevronLeft size={14} /> Back to Home
           </Link>
@@ -234,7 +234,7 @@ export default function SetupClient() {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Device selector sidebar */}
           <aside className="lg:w-56 flex-shrink-0">
-            <p className="text-zinc-500 text-xs uppercase tracking-wider font-medium mb-3">
+            <p className="text-zinc-400 text-xs uppercase tracking-wider font-medium mb-3">
               Select Device
             </p>
             <nav className="flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
@@ -249,7 +249,7 @@ export default function SetupClient() {
                   }`}
                 >
                   <span className="block font-medium">{d.name}</span>
-                  <span className={`text-xs ${activeId === d.id ? "text-brand-100" : "text-zinc-600"}`}>
+                  <span className={`text-xs ${activeId === d.id ? "text-brand-100" : "text-zinc-400"}`}>
                     {d.subtitle}
                   </span>
                 </button>
@@ -275,7 +275,7 @@ export default function SetupClient() {
               {/* Recommended app */}
               <div className="bg-surface-2 border border-white/5 rounded-xl p-4 flex items-center justify-between gap-4 mb-8">
                 <div>
-                  <p className="text-zinc-500 text-xs mb-0.5">Recommended App</p>
+                  <p className="text-zinc-400 text-xs mb-0.5">Recommended App</p>
                   <p className="text-white font-semibold">{active.appName}</p>
                 </div>
                 {active.appUrl && (
@@ -332,7 +332,7 @@ export default function SetupClient() {
                 href="https://wa.me/212710141872?text=Hi%2C%20I%20need%20help%20setting%20up%20my%20IPTV"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-6 py-3 rounded-full text-sm transition-colors"
+                className="flex-shrink-0 bg-[#0f7a40] hover:bg-[#0b6534] text-white font-semibold px-6 py-3 rounded-full text-sm transition-colors"
               >
                 WhatsApp Support
               </a>

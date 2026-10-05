@@ -6,17 +6,19 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 import { products } from "../lib/products";
+import { SITE_URL, returnPolicySchema } from "../lib/site";
 
 export const metadata: Metadata = {
-  title: "IPTV USA Plans & Pricing — From $5.42/Month",
+  title: "IPTV USA Plans — From $5.42/Month",
   description:
-    "Compare IPTV USA subscription plans from $19.99, or as little as $5.42/month. 50,000+ channels, 4K Ultra HD, 7-day catch-up. Choose 1, 3, 6, 12, or 24 months. No contract. Instant activation.",
-  alternates: { canonical: "https://multivision-iptv.com/product" },
+    "Compare IPTV USA plans: 1, 3, 6, 12 or 24 months, from $19.99 or as little as $5.42/month. 50,000+ channels, 4K and 7-day catch-up. No contract.",
+  alternates: { canonical: `${SITE_URL}/product` },
   openGraph: {
-    title: "IPTV USA Plans & Pricing — From $5.42/Month",
+    images: ["/og-image.png"],
+    title: "IPTV USA Plans — From $5.42/Month",
     description:
       "50,000+ channels, 4K streaming, 7-day catch-up. Plans from $19.99. Compare 1, 3, 6, 12 and 24-month Multivision IPTV subscriptions.",
-    url: "https://multivision-iptv.com/product",
+    url: `${SITE_URL}/product`,
   },
 };
 
@@ -26,7 +28,7 @@ const catalogSchema = {
   name: "Multivision IPTV Subscription",
   description:
     "Premium Multivision IPTV subscription with 50,000+ live channels, 200,000+ VODs, 4K Ultra HD quality, 7-day catch-up TV, and 24/7 support.",
-  image: "https://multivision-iptv.com/og-image.png",
+  image: `${SITE_URL}/og-image.png`,
   brand: { "@type": "Brand", name: "Multivision IPTV" },
   offers: products.map((p) => ({
     "@type": "Offer",
@@ -34,7 +36,8 @@ const catalogSchema = {
     price: p.price.toFixed(2),
     priceCurrency: "USD",
     availability: "https://schema.org/InStock",
-    url: `https://multivision-iptv.com/product/${p.slug}`,
+    hasMerchantReturnPolicy: returnPolicySchema,
+    url: `${SITE_URL}/product/${p.slug}`,
   })),
 };
 
@@ -42,8 +45,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://multivision-iptv.com" },
-    { "@type": "ListItem", position: 2, name: "Product", item: "https://multivision-iptv.com/product" },
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Product", item: `${SITE_URL}/product` },
   ],
 };
 
@@ -71,9 +74,9 @@ const trustPoints = [
   },
   {
     icon: "🔒",
-    title: "7-Day Refund Guarantee",
+    title: "48-Hour Refund Guarantee",
     description:
-      "Not happy within the first 7 days? We'll refund you, no questions asked. We're that confident in the quality of our service.",
+      "If the service doesn't work as described, request a refund within 48 hours of purchase. Try the free 3-hour trial first so you know it works for you.",
   },
   {
     icon: "🌍",
@@ -110,7 +113,7 @@ export default function ProductCatalogPage() {
 
         {/* Breadcrumb */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
-          <nav className="text-zinc-500 text-sm flex items-center gap-1.5">
+          <nav className="text-zinc-400 text-sm flex items-center gap-1.5">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span>/</span>
             <span className="text-zinc-300">Product</span>
@@ -129,11 +132,11 @@ export default function ProductCatalogPage() {
             All plans include the same premium features — 50,000+ channels, 4K quality, 7-day catch-up. The only difference is how long you subscribe and how much you save.
           </p>
           <div className="flex items-center justify-center gap-6 flex-wrap text-sm text-zinc-400">
-            <span>⭐ 4.9 / 2,847 reviews</span>
-            <span className="text-zinc-700">|</span>
+            <span>⚡ Instant activation</span>
+            <span aria-hidden className="text-zinc-700">|</span>
             <span>✅ No contracts</span>
-            <span className="text-zinc-700">|</span>
-            <span>🔒 7-day refund</span>
+            <span aria-hidden className="text-zinc-700">|</span>
+            <span>🔒 48-hour refund</span>
           </div>
         </section>
 

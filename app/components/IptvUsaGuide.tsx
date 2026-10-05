@@ -58,7 +58,7 @@ export default function IptvUsaGuide() {
               <dl className="divide-y divide-white/[0.06]">
                 {facts.map((f) => (
                   <div key={f.label} className="grid grid-cols-[minmax(0,10rem)_1fr] gap-4 px-6 py-3.5 text-sm">
-                    <dt className="text-zinc-500">{f.label}</dt>
+                    <dt className="text-zinc-400">{f.label}</dt>
                     <dd className="text-zinc-200">{f.value}</dd>
                   </div>
                 ))}
@@ -75,7 +75,7 @@ export default function IptvUsaGuide() {
               <div className="overflow-x-auto">
                 <table className="w-full text-sm min-w-[480px]">
                   <thead>
-                    <tr className="text-left text-zinc-500">
+                    <tr className="text-left text-zinc-400">
                       <th scope="col" className="font-medium px-6 py-3">Feature</th>
                       <th scope="col" className="font-medium px-4 py-3 text-brand-300">Multivision IPTV</th>
                       <th scope="col" className="font-medium px-4 py-3">Cable TV</th>
@@ -90,7 +90,7 @@ export default function IptvUsaGuide() {
                             {row.iptvWins ? (
                               <Check size={15} className="text-live mt-0.5 flex-shrink-0" />
                             ) : (
-                              <X size={15} className="text-zinc-500 mt-0.5 flex-shrink-0" />
+                              <X size={15} className="text-zinc-400 mt-0.5 flex-shrink-0" />
                             )}
                             {row.iptv}
                           </span>

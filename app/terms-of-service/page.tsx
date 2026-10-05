@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import LegalPage from "../components/LegalPage";
+import { SITE_URL } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "Read Multivision IPTV's terms and conditions. Understand your rights, responsibilities, and acceptable use policy for our IPTV streaming service.",
-  alternates: { canonical: "https://multivision-iptv.com/terms-of-service" },
+  alternates: { canonical: `${SITE_URL}/terms-of-service` },
   openGraph: {
+    images: ["/og-image.png"],
     title: "Terms of Service — Multivision IPTV",
     description: "Terms and conditions for Multivision IPTV service.",
-    url: "https://multivision-iptv.com/terms-of-service",
+    url: `${SITE_URL}/terms-of-service`,
   },
 };
 
@@ -18,7 +20,7 @@ export default function TermsOfService() {
       badge="Legal"
       title="Terms of Service"
       subtitle="Please read these terms carefully before using our service."
-      lastUpdated="1 January 2025"
+      lastUpdated="October 3, 2026"
       sections={[
         {
           heading: "1. Acceptance of Terms",

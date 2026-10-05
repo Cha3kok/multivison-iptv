@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { X, MessageCircle } from "lucide-react";
+import { X } from "lucide-react";
 
 export default function WhatsAppButton() {
   const [tooltipDismissed, setTooltipDismissed] = useState(false);
@@ -18,7 +18,7 @@ export default function WhatsAppButton() {
           >
             <X size={12} />
           </button>
-          <p className="font-bold text-xs text-zinc-500 mb-1">multivision-iptv.com</p>
+          <p className="font-bold text-xs text-zinc-600 mb-1">multivision-iptv.com</p>
           <p className="font-medium">💬 I want more information</p>
           {/* Tail */}
           <span className="absolute -bottom-2 right-6 w-3 h-3 bg-white rotate-45 shadow-sm" />

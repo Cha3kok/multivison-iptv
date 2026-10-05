@@ -4,15 +4,19 @@ import matter from "gray-matter";
 
 const POSTS_DIR = path.join(process.cwd(), "content/blog");
 
+export type PostFaq = { q: string; a: string };
+
 export type PostMeta = {
   slug: string;
   title: string;
   excerpt: string;
   category: string;
   date: string;
+  updated?: string;
   readTime: string;
   coverImage?: string;
   coverAlt?: string;
+  faq?: PostFaq[];
 };
 
 export type PostWithContent = PostMeta & {
@@ -33,9 +37,11 @@ export function getAllPosts(): PostMeta[] {
         excerpt: data.excerpt as string,
         category: data.category as string,
         date: data.date as string,
+        updated: data.updated as string | undefined,
         readTime: data.readTime as string,
         coverImage: data.coverImage as string | undefined,
         coverAlt: data.coverAlt as string | undefined,
+        faq: data.faq as PostFaq[] | undefined,
       };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -54,9 +60,11 @@ export function getPostBySlug(slug: string): PostWithContent | null {
     excerpt: data.excerpt as string,
     category: data.category as string,
     date: data.date as string,
+    updated: data.updated as string | undefined,
     readTime: data.readTime as string,
     coverImage: data.coverImage as string | undefined,
     coverAlt: data.coverAlt as string | undefined,
+    faq: data.faq as PostFaq[] | undefined,
     content,
   };
 }

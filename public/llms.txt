@@ -27,16 +27,34 @@
 
 ## Pages
 
-- [Home — IPTV USA](https://multivision-iptv.com/): overview, pricing, devices, FAQ
-- [Plans & pricing](https://multivision-iptv.com/product): compare all subscription lengths
-- [Setup guide](https://multivision-iptv.com/setup): step-by-step setup for Firestick, Smart TV, Android and iPhone
-- [Blog](https://multivision-iptv.com/blog): IPTV guides and troubleshooting
-- [About](https://multivision-iptv.com/about)
-- [Contact](https://multivision-iptv.com/contact)
+- [Home — IPTV USA](https://www.multivision-iptv.com/): overview, pricing, devices, FAQ
+- [Plans & pricing](https://www.multivision-iptv.com/product): compare all subscription lengths
+- [Setup guide](https://www.multivision-iptv.com/setup): step-by-step setup for Firestick, Smart TV, Android and iPhone
+- [Blog](https://www.multivision-iptv.com/blog): IPTV guides and troubleshooting
+- [About](https://www.multivision-iptv.com/about)
+- [Contact](https://www.multivision-iptv.com/contact)
+
+## Guides
+
+- [Best Android TV Box for IPTV in the USA (2026 Buying Guide)](https://www.multivision-iptv.com/blog/best-android-box-for-iptv): How to choose the best Android TV box for IPTV in the USA: the specs that matter, the main types of box compared, and how to set one up with your subscription.
+- [Best IPTV Apps for Firestick (2026) + Step-by-Step Setup](https://www.multivision-iptv.com/blog/best-iptv-apps-firestick): The best IPTV player apps for Amazon Firestick and Fire TV in 2026 compared, plus how to install them and add your IPTV subscription in about 5 minutes.
+- [Best IPTV Service in the USA (2026): 9 Things to Check](https://www.multivision-iptv.com/blog/best-iptv-service-usa): How to choose the best IPTV service in the USA: the 9 checks that separate reliable providers from bad ones, from free trials and uptime to pricing and support.
+- [Cheap IPTV in the USA (2026): Pay Less Without Buffering](https://www.multivision-iptv.com/blog/cheap-iptv-usa): How to get cheap IPTV in the USA without buffering: what low prices really buy, the cheapest way to pay, and the warning signs of a too-good-to-be-true deal.
+- [How to Cut the Cord and Switch to IPTV (2026 Checklist)](https://www.multivision-iptv.com/blog/cut-the-cord-switch-to-iptv): A step-by-step checklist for canceling cable and switching to IPTV in the USA: test first, check your internet, set up every TV and avoid equipment fees.
+- [How to Set Up IPTV on Android TV & Google TV (2026)](https://www.multivision-iptv.com/blog/iptv-android-tv-setup): Step-by-step: install an IPTV player on Android TV or Google TV, add your M3U or Xtream Codes login, set up the program guide and fix common setup problems.
+- [IPTV Buffering? 9 Fixes That Actually Work (2026)](https://www.multivision-iptv.com/blog/iptv-buffering-fix-guide): Why IPTV buffers and how to fix it: 9 proven fixes for Firestick, Smart TV and Android, from Ethernet and Wi-Fi bands to app cache, DNS and stream quality.
+- [How to Watch IPTV on iPhone & iPad (2026 Setup Guide)](https://www.multivision-iptv.com/blog/iptv-on-iphone-ipad): How to watch IPTV on an iPhone or iPad: the best App Store players, how to add your Xtream Codes or M3U login, and how to cast to your TV with AirPlay.
+- [How to Set Up IPTV on a Smart TV: Samsung, LG & More (2026)](https://www.multivision-iptv.com/blog/iptv-smart-tv-setup): How to set up IPTV on a Samsung, LG, Sony, TCL or Hisense Smart TV: which app to use on each system, how to add your login, and what to do if there's no app.
+- [IPTV Subscription USA (2026): Plans, Prices & What You Get](https://www.multivision-iptv.com/blog/iptv-subscription-usa): What an IPTV subscription in the USA costs in 2026, what's included, how many screens you get, and how to pick the right plan length for your household.
+- [IPTV vs Cable TV: Cost & Features Compared (2026)](https://www.multivision-iptv.com/blog/iptv-vs-cable-tv): IPTV vs cable TV for US households: cost, contracts, channels, picture quality, devices and reliability compared side by side, with who should choose which.
+- [IPTV vs Streaming Apps: Which Is Better for You? (2026)](https://www.multivision-iptv.com/blog/iptv-vs-streaming-apps): IPTV vs on-demand streaming apps and live TV streaming services for US viewers: live channels, cost, devices, and which mix gives you the most for your money.
+- [MAG Box IPTV Setup: Step-by-Step Portal Guide (2026)](https://www.multivision-iptv.com/blog/mag-box-iptv-setup): How to set up IPTV on a MAG box: find your MAC address, add the portal URL, restart, and fix common MAG errors such as 'STB blocked' and 'loading portal'.
+- [How to Watch Live Sports Without Cable in 2026](https://www.multivision-iptv.com/blog/watch-live-sports-without-cable): Every way to watch live sports without cable in the USA — antennas, streaming services and IPTV — compared on cost, coverage and setup, with tips for game day.
+- [What Is IPTV? A Simple Guide for US Viewers (2026)](https://www.multivision-iptv.com/blog/what-is-iptv): What IPTV means, how it works, what you need to watch it, how it differs from cable and streaming apps, and what it costs in the USA, in plain English.
 
 ## Policies
 
-- [Refund policy](https://multivision-iptv.com/refund-policy)
-- [Terms of service](https://multivision-iptv.com/terms-of-service)
-- [Privacy policy](https://multivision-iptv.com/privacy-policy)
-- [DMCA & copyright policy](https://multivision-iptv.com/dmca)
+- [Refund policy](https://www.multivision-iptv.com/refund-policy)
+- [Terms of service](https://www.multivision-iptv.com/terms-of-service)
+- [Privacy policy](https://www.multivision-iptv.com/privacy-policy)
+- [DMCA & copyright policy](https://www.multivision-iptv.com/dmca)

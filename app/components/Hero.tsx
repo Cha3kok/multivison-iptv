@@ -26,7 +26,7 @@ const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as React.CSSProperties;
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center bg-ink overflow-hidden pt-36 pb-10">
+    <section className="relative min-h-screen flex flex-col justify-center bg-ink overflow-hidden pt-28 pb-10">
       {/* Animated aurora background */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -top-40 -left-32 w-[640px] h-[640px] rounded-full bg-brand-500/30 blur-[120px] animate-aurora" />
@@ -166,14 +166,14 @@ export default function Hero() {
             <span className="w-8 h-8 rounded-lg bg-live/15 flex items-center justify-center"><Zap size={16} className="text-live" /></span>
             <div>
               <p className="text-white text-xs font-semibold">Zero buffering</p>
-              <p className="text-zinc-500 text-[10px]">Anti-freeze servers</p>
+              <p className="text-zinc-400 text-[10px]">Anti-freeze servers</p>
             </div>
           </div>
           <div className="hidden sm:flex absolute -right-6 -bottom-8 items-center gap-2 bg-surface/90 backdrop-blur-xl border border-white/10 rounded-2xl px-4 py-3 shadow-xl animate-float [animation-delay:-4s]">
             <span className="w-8 h-8 rounded-lg bg-brand-500/20 flex items-center justify-center"><Tv2 size={16} className="text-brand-300" /></span>
             <div>
               <p className="text-white text-xs font-semibold">Any device</p>
-              <p className="text-zinc-500 text-[10px]">TV · Firestick · Phone</p>
+              <p className="text-zinc-400 text-[10px]">TV · Firestick · Phone</p>
             </div>
           </div>
         </div>
@@ -187,7 +187,7 @@ export default function Hero() {
               <p className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
                 <CountUp to={s.to} decimals={s.decimals} suffix={s.suffix} />
               </p>
-              <p className="text-zinc-500 text-xs sm:text-sm mt-1">{s.label}</p>
+              <p className="text-zinc-400 text-xs sm:text-sm mt-1">{s.label}</p>
             </div>
           ))}
         </div>

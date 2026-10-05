@@ -4,7 +4,7 @@ export default function RootLoading() {
       <div className="flex flex-col items-center gap-4">
         {/* Spinner */}
         <div className="w-10 h-10 border-2 border-zinc-800 border-t-brand-500 rounded-full animate-spin" />
-        <p className="text-zinc-500 text-sm">Loading…</p>
+        <p className="text-zinc-400 text-sm">Loading…</p>
       </div>
     </div>
   );

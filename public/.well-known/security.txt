@@ -1,0 +1,5 @@
+Contact: mailto:multivisonsupport@gmail.com
+Expires: 2027-10-04T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://www.multivision-iptv.com/.well-known/security.txt
+Policy: https://www.multivision-iptv.com/terms-of-service

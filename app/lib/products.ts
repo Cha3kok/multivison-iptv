@@ -8,13 +8,6 @@ export type FaqItem = {
   a: string;
 };
 
-export type Testimonial = {
-  name: string;
-  city: string;
-  rating: number;
-  text: string;
-};
-
 export type Product = {
   slug: string;
   name: string;
@@ -29,7 +22,6 @@ export type Product = {
   whatsappMessage: string;
   whoIsItFor: WhoIsItForItem[];
   faq: FaqItem[];
-  testimonials: Testimonial[];
 };
 
 export const products: Product[] = [
@@ -39,9 +31,9 @@ export const products: Product[] = [
     price: 19.99,
     period: "one-time payment",
     highlight: false,
-    metaTitle: "1 Month IPTV USA Plan — $19.99 | 50,000+ Channels in 4K",
+    metaTitle: "1 Month IPTV USA Plan — $19.99",
     metaDescription:
-      "Try IPTV in the USA for one month: $19.99 for 50,000+ live channels, 4K Ultra HD and 7-day catch-up on any device. No contract, no auto-renewal. Free 3-hour trial.",
+      "Try IPTV in the USA for one month: $19.99 for 50,000+ live channels, 4K and 7-day catch-up on any device. No contract or auto-renewal. Free 3-hour trial.",
     h1: "1 Month IPTV USA Plan — $19.99 One-Time Payment",
     heroSubtitle:
       "The easiest way to try IPTV in the USA. Full access to 50,000+ live channels, 4K streaming and 7-day catch-up TV for $19.99. No contract, no recurring charges.",
@@ -82,27 +74,7 @@ export const products: Product[] = [
       },
       {
         q: "Is there a refund if I'm not satisfied?",
-        a: "Yes. We offer a 7-day refund guarantee on all plans. If you're not happy for any reason within the first 7 days, contact us on WhatsApp and we'll refund you without question.",
-      },
-    ],
-    testimonials: [
-      {
-        name: "James T.",
-        city: "Manchester",
-        rating: 5,
-        text: "I just wanted to test IPTV before committing and the 1-month plan was perfect. The picture quality on the sports channels was genuinely better than my old satellite. I've since upgraded to the 6-month plan.",
-      },
-      {
-        name: "Priya S.",
-        city: "Birmingham",
-        rating: 5,
-        text: "Signed up for one month while visiting family in the UK. Got set up in about 5 minutes and had hundreds of channels to watch. Brilliant value for £15 — I'll definitely subscribe again next visit.",
-      },
-      {
-        name: "Daniel H.",
-        city: "Leeds",
-        rating: 5,
-        text: "Used the 1-month plan to watch the Champions League knockout stages. Zero buffering on any game, even the late-night European ones. Support was fast when I had a question on day one.",
+        a: "If the service isn't working as described, you can request a refund within 48 hours of purchase. If a technical problem can't be fixed within 72 hours of reporting it, you're entitled to a pro-rated refund. See our refund policy for full details.",
       },
     ],
   },
@@ -112,9 +84,9 @@ export const products: Product[] = [
     price: 39.99,
     period: "one-time payment",
     highlight: false,
-    metaTitle: "3 Month IPTV USA Plan — $39.99 | Just $13.33/Month",
+    metaTitle: "3 Month IPTV USA Plan — $39.99",
     metaDescription:
-      "3 months of IPTV in the USA for $39.99 — just $13.33/month. 50,000+ live channels, 4K Ultra HD, 7-day catch-up. No contract, instant activation. Free 3-hour trial.",
+      "3 months of IPTV in the USA for $39.99 — just $13.33/month. 50,000+ live channels, 4K and 7-day catch-up. No contract, instant activation.",
     h1: "3 Month IPTV USA Plan — $39.99 One-Time Payment",
     heroSubtitle:
       "Three months of premium IPTV for $39.99 — saving you $19.98 compared with paying monthly. Ideal for casual viewers who want reliable live TV without a long-term commitment.",
@@ -151,27 +123,7 @@ export const products: Product[] = [
       },
       {
         q: "What happens if I have technical issues during my 3 months?",
-        a: "Our 24/7 WhatsApp support is available throughout your entire subscription. Most issues are resolved within minutes. We also offer a 7-day refund guarantee if you're unhappy for any reason.",
-      },
-    ],
-    testimonials: [
-      {
-        name: "Sophie R.",
-        city: "Bristol",
-        rating: 5,
-        text: "The 3-month plan was exactly what I needed — I'm a student and wanted TV for the term. Loads of channels, brilliant sports coverage, and the setup guide was really clear. Worth every penny.",
-      },
-      {
-        name: "Ahmed K.",
-        city: "London",
-        rating: 5,
-        text: "I was sceptical but the trial convinced me. Signed up for 3 months and I've had no issues at all. Entertainment, news, all the sports channels — all working perfectly. Will probably go for 6 months next time.",
-      },
-      {
-        name: "Claire W.",
-        city: "Edinburgh",
-        rating: 4,
-        text: "Good value for 3 months. The catch-up TV feature is really useful — I work shifts so I can never watch things live. Being able to go back 7 days is a game changer. Solid service.",
+        a: "Our 24/7 WhatsApp support is available throughout your entire subscription. Most issues are resolved within minutes. If a problem can't be fixed within 72 hours, you're entitled to a pro-rated refund under our refund policy.",
       },
     ],
   },
@@ -182,9 +134,9 @@ export const products: Product[] = [
     period: "one-time payment",
     badge: "Most Popular",
     highlight: true,
-    metaTitle: "6 Month IPTV USA Plan — $55.99 | Most Popular, $9.33/Month",
+    metaTitle: "6 Month IPTV USA Plan — $55.99",
     metaDescription:
-      "6 months of IPTV in the USA for $55.99 — only $9.33/month. Our most popular plan: 50,000+ live channels, 4K Ultra HD, 7-day catch-up and anti-freeze servers. Instant setup.",
+      "Our most popular plan: 6 months of IPTV in the USA for $55.99 ($9.33/month). 50,000+ live channels, 4K and 7-day catch-up. Instant setup.",
     h1: "6 Month IPTV USA Plan — $55.99 One-Time Payment",
     heroSubtitle:
       "Our most popular plan for good reason. Six months of premium IPTV for $55.99 — that's $9.33 per month. The best balance of savings and flexibility for regular viewers.",
@@ -228,26 +180,6 @@ export const products: Product[] = [
         a: "All plans include multi-device support (1-4 connections). If you want to connect additional devices simultaneously, just let us know when you subscribe. We'll configure your subscription for the number of screens you need.",
       },
     ],
-    testimonials: [
-      {
-        name: "Mark B.",
-        city: "Liverpool",
-        rating: 5,
-        text: "Been on the 6-month plan for over a year now — keep renewing it every time. Live sport in 4K with zero buffering. My mates can't believe how much I'm saving. Should have switched years ago.",
-      },
-      {
-        name: "Emma F.",
-        city: "Cardiff",
-        rating: 5,
-        text: "switched from satellite TV after 8 years and genuinely haven't missed it. Everything I was watching on satellite is here, plus loads more. The whole family uses it — different devices, different rooms, no issues.",
-      },
-      {
-        name: "Tariq M.",
-        city: "London",
-        rating: 5,
-        text: "Set up in under 10 minutes on my Firestick. The Arabic channels are incredible — far more selection than I had on satellite. The 6-month price is unbeatable. Customer service replied within minutes on WhatsApp.",
-      },
-    ],
   },
   {
     slug: "12-month-multivision-iptv",
@@ -255,7 +187,7 @@ export const products: Product[] = [
     price: 79.99,
     period: "one-time payment",
     highlight: false,
-    metaTitle: "12 Month IPTV USA Plan — $79.99 | Only $6.67/Month",
+    metaTitle: "12 Month IPTV USA Plan — $79.99",
     metaDescription:
       "A full year of IPTV in the USA for $79.99 — just $6.67/month. 50,000+ live channels, 4K streaming and 7-day catch-up for committed viewers. Instant setup.",
     h1: "12 Month IPTV USA Plan — $79.99 One-Time Payment",
@@ -301,26 +233,6 @@ export const products: Product[] = [
         a: "We recommend 10Mbps minimum for HD and 25Mbps for 4K. Most US home internet plans easily exceed this. If you're in a rural area with slower speeds, SD streams work at just 5Mbps.",
       },
     ],
-    testimonials: [
-      {
-        name: "Gareth P.",
-        city: "Swansea",
-        rating: 5,
-        text: "Been on the 12-month plan for two years running. At £5 a month I can't justify going back to satellite TV. The whole football season covered, all the boxing, F1 — everything. Genuinely the best TV decision I've made.",
-      },
-      {
-        name: "Naomi A.",
-        city: "Nottingham",
-        rating: 5,
-        text: "Signed up as a family and we've never looked back. The kids love the cartoon channels, my husband watches football, and I catch up on dramas. All on different devices at the same time. Amazing at this price.",
-      },
-      {
-        name: "Robert C.",
-        city: "Glasgow",
-        rating: 5,
-        text: "I was spending £85/month on satellite TV. Now I pay £60 once a year. Same channels, better picture on 4K, and I actually get more content. The setup guide was brilliant — had it running on my Samsung TV in minutes.",
-      },
-    ],
   },
   {
     slug: "24-month-multivision-iptv",
@@ -329,9 +241,9 @@ export const products: Product[] = [
     period: "one-time payment",
     badge: "Best Value",
     highlight: false,
-    metaTitle: "24 Month IPTV USA Plan — $129.99 | Best Value, $5.42/Month",
+    metaTitle: "24 Month IPTV USA Plan — $129.99",
     metaDescription:
-      "Two years of IPTV in the USA for $129.99 — just $5.42/month, our best value plan. 50,000+ live channels, 4K streaming and 7-day catch-up with one payment. Instant setup.",
+      "Our best value plan: two years of IPTV in the USA for $129.99, just $5.42/month. 50,000+ live channels, 4K and 7-day catch-up in one payment.",
     h1: "24 Month IPTV USA Plan — $129.99 One-Time Payment",
     heroSubtitle:
       "Our best value IPTV subscription. Two full years of premium Multivision IPTV for $129.99 — just $5.42 per month. One payment, two years of 50,000+ channels, 4K streaming, and zero hassle.",
@@ -373,26 +285,6 @@ export const products: Product[] = [
       {
         q: "Can I gift the 24-month plan to someone else?",
         a: "Yes. The 24-month plan makes an excellent gift for family members — particularly parents or grandparents who want to stop paying for cable. We can configure the subscription and provide a simple setup guide tailored to their specific device.",
-      },
-    ],
-    testimonials: [
-      {
-        name: "Kevin O.",
-        city: "Dublin",
-        rating: 5,
-        text: "I'm an Irish lad who loves British TV — Premier League, Bake Off, the lot. The 24-month plan means I don't think about renewing for two years. At £4.58 a month it's a no-brainer. Best purchase I've made.",
-      },
-      {
-        name: "Linda M.",
-        city: "Newcastle",
-        rating: 5,
-        text: "I got this for my mum who was paying £70/month for satellite TV. We set it up on her Smart TV and she hasn't noticed any difference in quality — except she can now watch MORE channels. She's saving over £1,500 over two years.",
-      },
-      {
-        name: "Hassan B.",
-        city: "Leicester",
-        rating: 5,
-        text: "Third time on the 24-month plan. Every time it expires I just renew immediately — it's that good. The Arabic and Asian channel selection is unmatched. My whole family watches together. Never had a single outage.",
       },
     ],
   },

@@ -4,16 +4,18 @@ import { ChevronLeft, Mail, MessageCircle, Clock } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import JsonLd from "../components/JsonLd";
+import { SITE_URL } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Contact Support — 24/7 WhatsApp & Email",
   description:
-    "Get instant help from Multivision IPTV support. Available 24/7 via WhatsApp or email for setup, billing, and technical issues. Typical response: under 5 minutes.",
-  alternates: { canonical: "https://multivision-iptv.com/contact" },
+    "Get help from Multivision IPTV support 24/7 on WhatsApp or email — for setup, billing and technical issues. Typical response: under 5 minutes.",
+  alternates: { canonical: `${SITE_URL}/contact` },
   openGraph: {
+    images: ["/og-image.png"],
     title: "Contact Multivision IPTV — 24/7 Support",
     description: "Reach our support team instantly via WhatsApp or email.",
-    url: "https://multivision-iptv.com/contact",
+    url: `${SITE_URL}/contact`,
   },
 };
 
@@ -21,7 +23,7 @@ const contactSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   name: "Contact Multivision IPTV",
-  url: "https://multivision-iptv.com/contact",
+  url: `${SITE_URL}/contact`,
   description: "Contact Multivision IPTV support via WhatsApp or email.",
 };
 
@@ -58,12 +60,13 @@ export default function ContactPage() {
     <div className="min-h-screen bg-ink text-white">
       <JsonLd data={contactSchema} />
       <Navbar />
+      <main>
 
       <div className="bg-night border-b border-white/5 pt-24 pb-14">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-zinc-500 hover:text-white text-sm mb-6 transition-colors"
+            className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white text-sm mb-6 transition-colors"
           >
             <ChevronLeft size={14} /> Back to Home
           </Link>
@@ -103,7 +106,7 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-white font-bold text-lg mb-1">{ch.title}</h2>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-1">{ch.description}</p>
-                <p className="text-zinc-500 text-xs">{ch.detail}</p>
+                <p className="text-zinc-400 text-xs">{ch.detail}</p>
               </div>
               <a
                 href={ch.href}
@@ -111,7 +114,7 @@ export default function ContactPage() {
                 rel={ch.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className={`mt-auto self-start font-semibold text-sm px-5 py-2.5 rounded-full transition-colors ${
                   ch.highlight
-                    ? "bg-[#25D366] hover:bg-[#20bd5a] text-white"
+                    ? "bg-[#0f7a40] hover:bg-[#0b6534] text-white"
                     : "bg-brand-500 hover:bg-brand-600 text-white"
                 }`}
               >
@@ -132,7 +135,7 @@ export default function ContactPage() {
               </div>
             ))}
           </div>
-          <p className="text-zinc-500 text-sm mt-5">
+          <p className="text-zinc-400 text-sm mt-5">
             More questions?{" "}
             <Link href="/#faq" className="text-brand-400 hover:text-brand-300 transition-colors">
               See our full FAQ
@@ -144,6 +147,8 @@ export default function ContactPage() {
           </p>
         </div>
       </div>
+
+      </main>
 
       <Footer />
     </div>

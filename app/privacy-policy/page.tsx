@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import LegalPage from "../components/LegalPage";
+import { SITE_URL } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Learn how Multivision IPTV collects, uses, and protects your personal data. We prioritize your privacy and security. Full transparency on data handling.",
-  alternates: { canonical: "https://multivision-iptv.com/privacy-policy" },
+  alternates: { canonical: `${SITE_URL}/privacy-policy` },
   openGraph: {
+    images: ["/og-image.png"],
     title: "Privacy Policy — Multivision IPTV",
     description: "How we protect and use your personal data.",
-    url: "https://multivision-iptv.com/privacy-policy",
+    url: `${SITE_URL}/privacy-policy`,
   },
 };
 
@@ -18,7 +20,7 @@ export default function PrivacyPolicy() {
       badge="Legal"
       title="Privacy Policy"
       subtitle="How we collect, use, and protect your personal information."
-      lastUpdated="1 January 2025"
+      lastUpdated="October 3, 2026"
       sections={[
         {
           heading: "1. Information We Collect",

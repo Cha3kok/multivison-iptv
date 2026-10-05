@@ -1,12 +1,13 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Check, Star } from "lucide-react";
+import { Check } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
 import JsonLd from "../../components/JsonLd";
 import { products, getProduct, getRelatedProducts } from "../../lib/products";
+import { SITE_URL, returnPolicySchema } from "../../lib/site";
 
 export async function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -23,11 +24,12 @@ export async function generateMetadata({
   return {
     title: product.metaTitle,
     description: product.metaDescription,
-    alternates: { canonical: `https://multivision-iptv.com/product/${slug}` },
+    alternates: { canonical: `${SITE_URL}/product/${slug}` },
     openGraph: {
+      images: ["/og-image.png"],
       title: product.metaTitle,
       description: product.metaDescription,
-      url: `https://multivision-iptv.com/product/${slug}`,
+      url: `${SITE_URL}/product/${slug}`,
     },
   };
 }
@@ -46,7 +48,7 @@ const whatsIncluded = [
   "24/7 Support",
   "Free Setup Help",
   "VPN Compatible",
-  "7-Day Refund Guarantee",
+  "48-Hour Refund Guarantee",
 ];
 
 function getMonths(slug: string): string {
@@ -77,14 +79,15 @@ export default async function ProductPage({
     "@type": "Product",
     name: product.name,
     description: product.metaDescription,
-    image: "https://multivision-iptv.com/og-image.png",
+    image: `${SITE_URL}/og-image.png`,
     brand: { "@type": "Brand", name: "Multivision IPTV" },
     offers: {
       "@type": "Offer",
       price: product.price.toFixed(2),
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
-      url: `https://multivision-iptv.com/product/${product.slug}`,
+      hasMerchantReturnPolicy: returnPolicySchema,
+      url: `${SITE_URL}/product/${product.slug}`,
     },
   };
 
@@ -92,13 +95,13 @@ export default async function ProductPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://multivision-iptv.com" },
-      { "@type": "ListItem", position: 2, name: "Product", item: "https://multivision-iptv.com/product" },
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Product", item: `${SITE_URL}/product` },
       {
         "@type": "ListItem",
         position: 3,
         name: product.name,
-        item: `https://multivision-iptv.com/product/${product.slug}`,
+        item: `${SITE_URL}/product/${product.slug}`,
       },
     ],
   };
@@ -113,7 +116,7 @@ export default async function ProductPage({
 
         {/* Breadcrumb */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
-          <nav className="text-zinc-500 text-sm flex items-center gap-1.5 flex-wrap">
+          <nav className="text-zinc-400 text-sm flex items-center gap-1.5 flex-wrap">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span>/</span>
             <Link href="/product" className="hover:text-white transition-colors">Product</Link>
@@ -144,17 +147,6 @@ export default async function ProductPage({
                 <div className="inline-flex items-baseline gap-2 bg-surface border border-brand-500/30 rounded-2xl px-5 py-3 mb-8">
                   <span className="text-4xl font-extrabold text-white">${product.price}</span>
                   <span className="text-zinc-400 text-sm">{product.period}</span>
-                </div>
-
-                {/* Star rating */}
-                <div className="flex items-center gap-2 mb-8">
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={15} className="fill-brand-400 text-brand-400" />
-                    ))}
-                  </div>
-                  <span className="text-white font-bold text-sm">4.9</span>
-                  <span className="text-zinc-500 text-sm">/ 2,847 reviews</span>
                 </div>
 
                 {/* CTAs */}
@@ -292,39 +284,6 @@ export default async function ProductPage({
                     {stat.label}
                   </p>
                   <p className="text-white font-bold text-xl leading-tight">{stat.value}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section className="py-20 px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="text-brand-400 text-sm font-semibold uppercase tracking-widest mb-3">
-                Customer Reviews
-              </p>
-              <h2 className="text-3xl font-bold text-white">
-                What customers say about the {product.name}
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {product.testimonials.map((t) => (
-                <div
-                  key={t.name}
-                  className="bg-surface border border-white/5 rounded-2xl p-7 flex flex-col gap-4"
-                >
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} size={14} className="fill-brand-400 text-brand-400" />
-                    ))}
-                  </div>
-                  <p className="text-zinc-300 text-sm leading-relaxed flex-1">&ldquo;{t.text}&rdquo;</p>
-                  <div>
-                    <p className="text-white font-semibold text-sm">{t.name}</p>
-                    <p className="text-zinc-500 text-xs">{t.city}</p>
-                  </div>
                 </div>
               ))}
             </div>

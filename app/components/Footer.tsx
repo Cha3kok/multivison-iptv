@@ -99,7 +99,7 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(links).map(([group, items]) => (
             <div key={group}>
-              <h4 className="text-white font-semibold text-sm mb-4">{group}</h4>
+              <p className="text-white font-semibold text-sm mb-4">{group}</p>
               <ul className="space-y-2.5">
                 {items.map((item) => (
                   <li key={item.label}>
@@ -118,10 +118,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-zinc-500 text-xs">
-            &copy; {new Date().getFullYear()} MultivisionIPTV. All rights reserved.
+          <p className="text-zinc-400 text-xs">
+            &copy; {new Date().getFullYear()} Multivision IPTV. All rights reserved.
           </p>
-          <p className="text-zinc-600 text-xs">
+          <p className="text-zinc-400 text-xs">
             For entertainment purposes. Please comply with local laws.
           </p>
         </div>

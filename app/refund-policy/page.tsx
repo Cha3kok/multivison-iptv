@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import LegalPage from "../components/LegalPage";
+import { SITE_URL } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Refund Policy",
   description: "Multivision IPTV refund policy: 48-hour money-back guarantee if service doesn't work as described. Check your refund rights and eligibility terms.",
-  alternates: { canonical: "https://multivision-iptv.com/refund-policy" },
+  alternates: { canonical: `${SITE_URL}/refund-policy` },
   openGraph: {
+    images: ["/og-image.png"],
     title: "Refund Policy — Multivision IPTV",
     description: "48-hour refund guarantee if unsatisfied with service.",
-    url: "https://multivision-iptv.com/refund-policy",
+    url: `${SITE_URL}/refund-policy`,
   },
 };
 
@@ -18,7 +20,7 @@ export default function RefundPolicy() {
       badge="Legal"
       title="Refund Policy"
       subtitle="We want you to be completely satisfied. Here's how our refund process works."
-      lastUpdated="1 January 2025"
+      lastUpdated="October 3, 2026"
       sections={[
         {
           heading: "Free Trial First",

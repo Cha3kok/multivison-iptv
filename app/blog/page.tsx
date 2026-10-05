@@ -6,19 +6,21 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 import JsonLd from "../components/JsonLd";
+import { SITE_URL } from "../lib/site";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "IPTV Blog — Guides, Setup Tips & Reviews",
   description:
-    "IPTV guides, tips, troubleshooting and comparisons. Learn how to get the most from your Multivision IPTV subscription.",
+    "IPTV guides for US viewers: subscription prices, setup on Firestick, Smart TV and iPhone, live sports without cable, and buffering fixes.",
   openGraph: {
+    images: ["/og-image.png"],
     title: "Blog — Multivision IPTV",
     description: "IPTV guides, tips, troubleshooting and comparisons.",
-    url: "https://multivision-iptv.com/blog",
+    url: `${SITE_URL}/blog`,
   },
-  alternates: { canonical: "https://multivision-iptv.com/blog" },
+  alternates: { canonical: `${SITE_URL}/blog` },
 };
 
 const categoryColors: Record<string, string> = {
@@ -30,7 +32,7 @@ const categoryColors: Record<string, string> = {
 };
 
 function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-GB", {
+  return new Date(iso).toLocaleDateString("en-US", {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -49,13 +51,13 @@ export default function BlogPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://multivision-iptv.com",
+        item: SITE_URL,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://multivision-iptv.com/blog",
+        item: `${SITE_URL}/blog`,
       },
     ],
   };
@@ -65,12 +67,12 @@ export default function BlogPage() {
     "@type": "CollectionPage",
     name: "Multivision IPTV Blog",
     description:
-      "IPTV guides, tips, troubleshooting and comparisons. Learn how to get the most from your Multivision IPTV subscription.",
-    url: "https://multivision-iptv.com/blog",
+      "IPTV guides for US viewers: subscription prices, setup on Firestick, Smart TV and iPhone, live sports without cable, and buffering fixes.",
+    url: `${SITE_URL}/blog`,
     mainEntity: posts.map((post) => ({
       "@type": "Article",
       headline: post.title,
-      url: `https://multivision-iptv.com/blog/${post.slug}`,
+      url: `${SITE_URL}/blog/${post.slug}`,
       datePublished: post.date,
       description: post.excerpt,
     })),
@@ -81,6 +83,7 @@ export default function BlogPage() {
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={collectionSchema} />
       <Navbar />
+      <main>
 
       {/* Header */}
       <div className="bg-night border-b border-white/5 pt-24 pb-14">
@@ -89,10 +92,10 @@ export default function BlogPage() {
             Blog
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-3">
-            IPTV Guides & Tips
+            IPTV Guides for US Viewers
           </h1>
           <p className="text-zinc-400 text-lg max-w-2xl">
-            Everything you need to get the most from your IPTV service — setup guides, troubleshooting, app reviews, and more.
+            Plain-English guides to IPTV in the USA — pricing, setup on every device, live sports without cable, and fixes for common problems.
           </p>
         </div>
       </div>
@@ -107,14 +110,14 @@ export default function BlogPage() {
             <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full border ${categoryColors[featured.category] ?? "bg-surface-2 text-zinc-400 border-white/10"}`}>
               <Tag size={11} /> {featured.category}
             </span>
-            <span className="text-zinc-500 text-xs">Featured</span>
+            <span className="text-zinc-400 text-xs">Featured</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 group-hover:text-brand-400 transition-colors">
             {featured.title}
           </h2>
           <p className="text-zinc-400 leading-relaxed mb-6 max-w-3xl">{featured.excerpt}</p>
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4 text-zinc-500 text-xs">
+            <div className="flex items-center gap-4 text-zinc-400 text-xs">
               <span>{formatDate(featured.date)}</span>
               <span className="flex items-center gap-1">
                 <Clock size={11} /> {featured.readTime}
@@ -144,7 +147,7 @@ export default function BlogPage() {
                 {post.excerpt}
               </p>
               <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
-                <div className="flex items-center gap-3 text-zinc-500 text-xs">
+                <div className="flex items-center gap-3 text-zinc-400 text-xs">
                   <span>{formatDate(post.date)}</span>
                   <span className="flex items-center gap-1">
                     <Clock size={11} /> {post.readTime}
@@ -156,6 +159,8 @@ export default function BlogPage() {
           ))}
         </div>
       </div>
+
+      </main>
 
       <Footer />
       <WhatsAppButton />

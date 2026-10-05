@@ -7,30 +7,27 @@ import Devices from "./components/Devices";
 import Setup from "./components/Setup";
 import Channels from "./components/Channels";
 import Pricing from "./components/Pricing";
-import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
+import GuidesPreview from "./components/GuidesPreview";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import StickyBar from "./components/StickyBar";
 import JsonLd from "./components/JsonLd";
-import OfferBanner from "./components/OfferBanner";
-import SocialProof from "./components/SocialProof";
 import { products } from "./lib/products";
 import { homeFaqs } from "./lib/faqs";
-
-const BASE_URL = "https://multivision-iptv.com";
+import { SITE_URL, returnPolicySchema } from "./lib/site";
 
 export const metadata: Metadata = {
-  alternates: { canonical: BASE_URL },
+  alternates: { canonical: SITE_URL },
 };
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": `${BASE_URL}/#organization`,
+  "@id": `${SITE_URL}/#organization`,
   name: "Multivision IPTV",
-  url: BASE_URL,
-  logo: `${BASE_URL}/logo.png`,
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.png`,
   description:
     "Multivision IPTV is an IPTV subscription service for the USA, streaming 50,000+ live channels and 200,000+ movies and series to any device.",
   areaServed: { "@type": "Country", name: "United States" },
@@ -47,11 +44,11 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": `${BASE_URL}/#website`,
+  "@id": `${SITE_URL}/#website`,
   name: "Multivision IPTV",
-  url: BASE_URL,
+  url: SITE_URL,
   inLanguage: "en-US",
-  publisher: { "@id": `${BASE_URL}/#organization` },
+  publisher: { "@id": `${SITE_URL}/#organization` },
 };
 
 const productSchema = {
@@ -60,7 +57,7 @@ const productSchema = {
   name: "Multivision IPTV USA Subscription",
   description:
     "IPTV subscription for the USA with 50,000+ live channels, 200,000+ movies and series on demand, up to 4K quality, 7-day catch-up and 24/7 support. No contract.",
-  image: `${BASE_URL}/og-image.png`,
+  image: `${SITE_URL}/og-image.png`,
   brand: { "@type": "Brand", name: "Multivision IPTV" },
   offers: {
     "@type": "AggregateOffer",
@@ -74,7 +71,8 @@ const productSchema = {
       price: p.price.toFixed(2),
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
-      url: `${BASE_URL}/product/${p.slug}`,
+      hasMerchantReturnPolicy: returnPolicySchema,
+      url: `${SITE_URL}/product/${p.slug}`,
       areaServed: { "@type": "Country", name: "United States" },
     })),
   },
@@ -97,7 +95,6 @@ export default function Home() {
       <JsonLd data={websiteSchema} />
       <JsonLd data={productSchema} />
       <JsonLd data={faqSchema} />
-      <OfferBanner />
       <Navbar />
       <main>
         <Hero />
@@ -107,13 +104,12 @@ export default function Home() {
         <Devices />
         <Setup />
         <Channels />
-        <Testimonials />
+        <GuidesPreview />
         <FAQ />
       </main>
       <Footer />
       <WhatsAppButton />
       <StickyBar />
-      <SocialProof />
     </>
   );
 }

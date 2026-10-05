@@ -5,16 +5,18 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 import JsonLd from "../components/JsonLd";
+import { SITE_URL } from "../lib/site";
 
 export const metadata: Metadata = {
-  title: "About Us — IPTV Service Provider for the USA",
+  title: "About Us — IPTV Service for the USA",
   description:
-    "Discover Multivision IPTV: trusted by 25,000+ subscribers. We deliver 50,000+ live channels, 4K streaming, and 99.9% uptime. Learn our mission and how we serve viewers across the USA.",
-  alternates: { canonical: "https://multivision-iptv.com/about" },
+    "Who we are, how we write our guides, and how Multivision IPTV delivers 50,000+ live channels and 4K streaming to viewers across the USA.",
+  alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
+    images: ["/og-image.png"],
     title: "About Multivision IPTV — IPTV Service for the USA",
     description: "25,000+ subscribers trust us for 50,000+ live channels, 4K streaming, and exceptional support.",
-    url: "https://multivision-iptv.com/about",
+    url: `${SITE_URL}/about`,
   },
 };
 
@@ -29,7 +31,7 @@ const aboutSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "About Multivision IPTV",
-  url: "https://multivision-iptv.com/about",
+  url: `${SITE_URL}/about`,
   description:
     "Multivision IPTV is a premium IPTV provider offering 50,000+ live channels in 4K quality.",
 };
@@ -39,12 +41,13 @@ export default function AboutPage() {
     <div className="min-h-screen bg-ink text-white">
       <JsonLd data={aboutSchema} />
       <Navbar />
+      <main>
 
       <div className="bg-night border-b border-white/5 pt-24 pb-14">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-zinc-500 hover:text-white text-sm mb-6 transition-colors"
+            className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white text-sm mb-6 transition-colors"
           >
             <ChevronLeft size={14} /> Back to Home
           </Link>
@@ -92,6 +95,29 @@ export default function AboutPage() {
           </p>
         </div>
 
+        {/* Editorial policy */}
+        <div id="editorial" className="bg-surface border border-white/5 rounded-2xl p-8 space-y-4 scroll-mt-24">
+          <h2 className="text-2xl font-bold text-white">How We Write Our Guides</h2>
+          <p className="text-zinc-300 leading-8">
+            The guides on our blog are written by the Multivision IPTV support team — the same people who help
+            customers set up Firesticks, Smart TVs, Android boxes, iPhones and MAG boxes on WhatsApp every day.
+            The setup steps reflect the questions we actually answer.
+          </p>
+          <ul className="space-y-2 text-zinc-300 leading-7 list-disc pl-5">
+            <li>Prices, channel counts and features are checked against our live plans before publishing.</li>
+            <li>Every guide shows the date it was published or last updated, and we revise guides when apps or prices change.</li>
+            <li>We sell an IPTV service, so comparisons and buying guides say so and explain the criteria we use.</li>
+            <li>We don&apos;t publish statistics we can&apos;t source.</li>
+          </ul>
+          <p className="text-zinc-400 text-sm">
+            Spotted something out of date? Tell us at{" "}
+            <a href="mailto:multivisonsupport@gmail.com" className="text-brand-400 hover:text-brand-300 underline underline-offset-2">
+              multivisonsupport@gmail.com
+            </a>
+            .
+          </p>
+        </div>
+
         {/* Why us */}
         <div className="space-y-5">
           <h2 className="text-2xl font-bold text-white">Why Customers Choose Us</h2>
@@ -134,6 +160,8 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+
+      </main>
 
       <Footer />
       <WhatsAppButton />

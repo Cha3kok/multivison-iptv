@@ -134,7 +134,7 @@ export default function Devices() {
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm">{device.name}</p>
-                  <p className="text-zinc-500 text-xs mt-0.5">{device.desc}</p>
+                  <p className="text-zinc-400 text-xs mt-0.5">{device.desc}</p>
                 </div>
               </Spotlight>
             </Reveal>
@@ -142,7 +142,7 @@ export default function Devices() {
         </div>
 
         <Reveal>
-          <p className="text-center text-zinc-500 text-sm mt-12">
+          <p className="text-center text-zinc-400 text-sm mt-12">
             Compatible with <span className="text-zinc-300">TiviMate</span>, <span className="text-zinc-300">IPTV Smarters Pro</span>,{" "}
             <span className="text-zinc-300">GSE IPTV</span>, <span className="text-zinc-300">Perfect Player</span>, and all standard M3U players.
           </p>

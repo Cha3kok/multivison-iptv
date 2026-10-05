@@ -173,7 +173,7 @@ export default function Pricing() {
                   </div>
 
                   <p className="text-white font-bold text-base leading-tight mb-1">{plan.name}</p>
-                  <p className="text-zinc-500 text-xs mb-5 leading-snug">{plan.subtitle}</p>
+                  <p className="text-zinc-400 text-xs mb-5 leading-snug">{plan.subtitle}</p>
 
                   <div className="mb-6 overflow-hidden">
                     <span
@@ -182,7 +182,7 @@ export default function Pricing() {
                     >
                       ${price.toFixed(2)}
                     </span>
-                    <span className="text-zinc-500 text-sm ml-1">{period}</span>
+                    <span className="text-zinc-400 text-sm ml-1">{period}</span>
                   </div>
 
                   <ul className="space-y-2.5 mb-7 flex-1">
@@ -220,7 +220,7 @@ export default function Pricing() {
         </div>
 
         <Reveal>
-          <p className="text-center text-zinc-500 text-sm mt-12">
+          <p className="text-center text-zinc-400 text-sm mt-12">
             All plans include a free 3-hour trial. Contact us on WhatsApp — no credit card required.
           </p>
         </Reveal>

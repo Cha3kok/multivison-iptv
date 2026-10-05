@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeft, Clock, Tag, ArrowRight } from "lucide-react";
@@ -9,6 +10,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
 import JsonLd from "../../components/JsonLd";
+import { SITE_URL } from "../../lib/site";
 
 export const dynamicParams = true;
 
@@ -23,17 +25,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(slug);
   if (!post) return {};
 
+  const image = post.coverImage ?? "/og-image.png";
+
   return {
-    title: post.title,
+    title: { absolute: post.title },
     description: post.excerpt,
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://multivision-iptv.com/blog/${post.slug}`,
+      url: `${SITE_URL}/blog/${post.slug}`,
       type: "article",
       publishedTime: post.date,
+      modifiedTime: post.updated ?? post.date,
+      images: [{ url: image, alt: post.coverAlt ?? post.title }],
     },
-    alternates: { canonical: `https://multivision-iptv.com/blog/${post.slug}` },
+    twitter: { card: "summary_large_image", title: post.title, description: post.excerpt, images: [image] },
+    alternates: { canonical: `${SITE_URL}/blog/${post.slug}` },
   };
 }
 
@@ -43,10 +50,11 @@ const categoryColors: Record<string, string> = {
   Troubleshooting: "bg-yellow-500/15 text-yellow-400 border-yellow-500/20",
   Sports: "bg-brand-400/15 text-brand-400 border-brand-400/20",
   Comparisons: "bg-purple-500/15 text-purple-400 border-purple-500/20",
+  Reviews: "bg-cyan-500/15 text-cyan-400 border-cyan-500/20",
 };
 
 function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-GB", {
+  return new Date(iso).toLocaleDateString("en-US", {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -54,9 +62,12 @@ function formatDate(iso: string) {
 }
 
 const mdxComponents = {
-  img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
-    <img className="w-full rounded-2xl my-8 object-cover max-h-96" {...props} />
-  ),
+  img: ({ src, alt }: React.ImgHTMLAttributes<HTMLImageElement>) =>
+    typeof src === "string" ? (
+      <span className="relative block aspect-[16/9] w-full overflow-hidden rounded-2xl my-8">
+        <Image src={src} alt={alt ?? ""} fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" />
+      </span>
+    ) : null,
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2 className="text-xl font-bold text-white mt-10 mb-3" {...props} />
   ),
@@ -128,35 +139,52 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const allPosts = getAllPosts();
-  const related = allPosts
-    .filter((p) => p.slug !== post.slug && p.category === post.category)
-    .slice(0, 2);
+  const others = allPosts.filter((p) => p.slug !== post.slug);
+  const related = [
+    ...others.filter((p) => p.category === post.category),
+    ...others.filter((p) => p.category !== post.category),
+  ].slice(0, 2);
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    image: "https://multivision-iptv.com/og-image.png",
+    image: `${SITE_URL}${post.coverImage ?? "/og-image.png"}`,
     datePublished: post.date,
-    dateModified: post.date,
-    url: `https://multivision-iptv.com/blog/${post.slug}`,
+    dateModified: post.updated ?? post.date,
+    inLanguage: "en-US",
+    url: `${SITE_URL}/blog/${post.slug}`,
+    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
     author: {
       "@type": "Organization",
-      name: "MultivisionIPTV",
-      url: "https://multivision-iptv.com",
-      logo: "https://multivision-iptv.com/logo.png",
+      name: "Multivision IPTV Support Team",
+      description: "The support team that helps Multivision IPTV customers set up their devices.",
+      url: `${SITE_URL}/about#editorial`,
+      logo: `${SITE_URL}/logo.png`,
     },
     publisher: {
       "@type": "Organization",
-      name: "MultivisionIPTV",
-      url: "https://multivision-iptv.com",
+      name: "Multivision IPTV",
+      url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: "https://multivision-iptv.com/logo.png",
+        url: `${SITE_URL}/logo.png`,
       },
     },
   };
+
+  const faqSchema = post.faq?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -166,19 +194,19 @@ export default async function BlogPostPage({ params }: Props) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://multivision-iptv.com",
+        item: SITE_URL,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://multivision-iptv.com/blog",
+        item: `${SITE_URL}/blog`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: post.title,
-        item: `https://multivision-iptv.com/blog/${post.slug}`,
+        item: `${SITE_URL}/blog/${post.slug}`,
       },
     ],
   };
@@ -187,14 +215,16 @@ export default async function BlogPostPage({ params }: Props) {
     <div className="min-h-screen bg-ink text-white">
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
+      {faqSchema && <JsonLd data={faqSchema} />}
       <Navbar />
 
+      <main>
       {/* Hero */}
       <div className="bg-night border-b border-white/5 pt-24 pb-14">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-1.5 text-zinc-500 hover:text-white text-sm mb-6 transition-colors"
+            className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white text-sm mb-6 transition-colors"
           >
             <ChevronLeft size={14} /> All Articles
           </Link>
@@ -203,27 +233,41 @@ export default async function BlogPostPage({ params }: Props) {
             <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full border ${categoryColors[post.category] ?? "bg-surface-2 text-zinc-400 border-white/10"}`}>
               <Tag size={11} /> {post.category}
             </span>
-            <span className="flex items-center gap-1 text-zinc-500 text-xs">
+            <span className="flex items-center gap-1 text-zinc-400 text-xs">
               <Clock size={11} /> {post.readTime}
             </span>
-            <span className="text-zinc-500 text-xs">{formatDate(post.date)}</span>
+            <time dateTime={post.updated ?? post.date} className="text-zinc-400 text-xs">
+              {post.updated && post.updated !== post.date ? `Updated ${formatDate(post.updated)}` : formatDate(post.date)}
+            </time>
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">
             {post.title}
           </h1>
           <p className="text-zinc-400 text-lg leading-relaxed">{post.excerpt}</p>
+          <p className="text-zinc-400 text-sm mt-5">
+            By the{" "}
+            <Link href="/about#editorial" className="text-zinc-300 hover:text-white underline underline-offset-2">
+              Multivision IPTV support team
+            </Link>
+          </p>
         </div>
       </div>
 
       {/* Cover image */}
       {post.coverImage && (
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-          <img
-            src={post.coverImage}
-            alt={post.coverAlt ?? post.title}
-            className="w-full rounded-2xl object-cover max-h-96"
-          />
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
+            <Image
+              src={post.coverImage}
+              alt={post.coverAlt ?? post.title}
+              fill
+              loading="eager"
+              fetchPriority="high"
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+            />
+          </div>
         </div>
       )}
 
@@ -231,9 +275,28 @@ export default async function BlogPostPage({ params }: Props) {
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <MDXRemote source={post.content} components={mdxComponents} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
 
+        {post.faq?.length ? (
+          <section className="mt-12" aria-labelledby="faq-heading">
+            <h2 id="faq-heading" className="text-xl font-bold text-white mt-10 mb-5">
+              Frequently asked questions
+            </h2>
+            <div className="space-y-3">
+              {post.faq.map((f) => (
+                <details key={f.q} className="group rounded-xl border border-white/10 bg-surface/60 open:border-brand-500/40">
+                  <summary className="cursor-pointer list-none px-5 py-4 text-white font-medium flex items-center justify-between gap-4">
+                    {f.q}
+                    <span className="text-brand-300 transition-transform group-open:rotate-45 text-xl leading-none">+</span>
+                  </summary>
+                  <p className="px-5 pb-5 text-zinc-300 leading-7">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {/* CTA box */}
         <div className="mt-14 bg-gradient-to-br from-brand-950/40 to-zinc-900 border border-brand-900/30 rounded-2xl p-8 text-center">
-          <h3 className="text-white font-bold text-xl mb-2">Ready to try it yourself?</h3>
+          <p className="text-white font-bold text-xl mb-2">Ready to try it yourself?</p>
           <p className="text-zinc-400 text-sm mb-6">
             Get a free 3-hour trial — no credit card required. Our team sets it up for you.
           </p>
@@ -250,7 +313,7 @@ export default async function BlogPostPage({ params }: Props) {
               href="https://wa.me/212710141872?text=Hi%2C%20I%27d%20like%20more%20information"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-6 py-3 rounded-full text-sm transition-colors"
+              className="bg-[#0f7a40] hover:bg-[#0b6534] text-white font-semibold px-6 py-3 rounded-full text-sm transition-colors"
             >
               WhatsApp Us
             </a>
@@ -260,7 +323,7 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Related posts */}
         {related.length > 0 && (
           <div className="mt-14">
-            <h3 className="text-white font-bold text-lg mb-5">Related Articles</h3>
+            <h2 className="text-white font-bold text-lg mb-5">Related Articles</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {related.map((p) => (
                 <Link
@@ -271,7 +334,7 @@ export default async function BlogPostPage({ params }: Props) {
                   <p className="text-white font-semibold text-sm mb-2 group-hover:text-brand-400 transition-colors leading-snug">
                     {p.title}
                   </p>
-                  <p className="text-zinc-500 text-xs line-clamp-2">{p.excerpt}</p>
+                  <p className="text-zinc-400 text-xs line-clamp-2">{p.excerpt}</p>
                   <span className="flex items-center gap-1 text-brand-400 text-xs mt-3 font-medium">
                     Read More <ArrowRight size={12} />
                   </span>
@@ -281,6 +344,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         )}
       </article>
+      </main>
 
       <Footer />
       <WhatsAppButton />

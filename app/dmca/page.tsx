@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import LegalPage from "../components/LegalPage";
+import { SITE_URL } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "DMCA & Copyright Policy",
   description: "Multivision IPTV DMCA and copyright policy: how to submit a takedown notice, what to include, counter-notifications and our repeat infringer policy.",
-  alternates: { canonical: "https://multivision-iptv.com/dmca" },
+  alternates: { canonical: `${SITE_URL}/dmca` },
   openGraph: {
+    images: ["/og-image.png"],
     title: "DMCA Policy — Multivision IPTV",
     description: "How to report copyright infringement to Multivision IPTV.",
-    url: "https://multivision-iptv.com/dmca",
+    url: `${SITE_URL}/dmca`,
   },
 };
 
@@ -18,7 +20,7 @@ export default function DmcaPolicy() {
       badge="Legal"
       title="DMCA & Copyright Policy"
       subtitle="We respect the intellectual property rights of others. Here's how to report content you believe infringes your copyright."
-      lastUpdated="3 October 2026"
+      lastUpdated="October 3, 2026"
       sections={[
         {
           heading: "Our Commitment",

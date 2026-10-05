@@ -81,7 +81,7 @@ export default function Setup() {
               href="https://wa.me/212710141872?text=Hi%2C%20I%20need%20help%20setting%20up%20my%20IPTV"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative flex-shrink-0 inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-6 py-3.5 rounded-full text-sm shadow-lg shadow-green-500/25 hover:-translate-y-0.5 transition-all"
+              className="relative flex-shrink-0 inline-flex items-center gap-2 bg-[#0f7a40] hover:bg-[#0b6534] text-white font-semibold px-6 py-3.5 rounded-full text-sm shadow-lg shadow-green-500/25 hover:-translate-y-0.5 transition-all"
             >
               <MessageCircle size={16} />
               Get Free Setup Help

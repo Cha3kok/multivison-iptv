@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import { SITE_URL } from "./lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,10 +14,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const BASE_URL = "https://multivision-iptv.com";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "IPTV USA — 50,000+ Live Channels in 4K | Multivision IPTV",
     template: "%s — Multivision IPTV",
@@ -43,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: BASE_URL,
+    url: SITE_URL,
     siteName: "Multivision IPTV",
     title: "IPTV USA — 50,000+ Live Channels in 4K | Multivision IPTV",
     description:
